@@ -27,7 +27,7 @@ public class GameRocket extends Actor {
 
     private enum Side { BACK, FRONT };
 
-    private static final int MAX_ANSWER_LENGTH = 4;
+    private static final int MAX_ANSWER_LENGTH = 5;
     private static final String ROCKET_FRONT_IMAGE = "suma1a";
     private static final String ROCKET_BACK_IMAGE = "suma2a";
     private static final float ROCKET_X_POS = 26;
@@ -168,8 +168,11 @@ public class GameRocket extends Actor {
             case 3:
                 setAnswerTextParams(165, 188, "Roboto-Regular65");
                 break;
-            default: // 4;
+            case 4:
                 setAnswerTextParams(148, 188, "Roboto-Regular65");
+                break;
+            default: // 5
+                setAnswerTextParams(145, 185, "Roboto-Regular56");
                 break;
         }
     }
@@ -192,8 +195,11 @@ public class GameRocket extends Actor {
             case 3:
                 setOperationTextParams(165, 348, "Roboto-Regular65");
                 break;
-            default: // 4;
+            case 4:
                 setOperationTextParams(148, 348, "Roboto-Regular65");
+                break;
+            default: // 5
+                setOperationTextParams(144, 343, "Roboto-Regular56");
                 break;
         }
     }

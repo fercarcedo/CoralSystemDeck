@@ -23,6 +23,7 @@ public class PlaceholderTextField extends TextField {
         this.placeholder = placeholder;
         if (textEmpty(getText())) {
             super.setText(placeholder);
+            placeholderShown = true;
         }
     }
 

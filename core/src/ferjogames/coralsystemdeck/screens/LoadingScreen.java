@@ -129,6 +129,12 @@ public class LoadingScreen extends AbstractScreen {
 
         fontParams = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
         fontParams.fontFileName = "fonts/Roboto-Regular.ttf";
+        fontParams.fontParameters.size = Utils.fontSizeToPixels(56);
+
+        assetManager.load("Roboto-Regular56.ttf", BitmapFont.class, fontParams);
+
+        fontParams = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
+        fontParams.fontFileName = "fonts/Roboto-Regular.ttf";
         fontParams.fontParameters.size = Utils.fontSizeToPixels(32);
 
         assetManager.load("Roboto-Regular32.ttf", BitmapFont.class, fontParams);
