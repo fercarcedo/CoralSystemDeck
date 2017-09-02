@@ -21,8 +21,8 @@ android {
         applicationId "ferjogames.coralsystemdeck"
         minSdkVersion 9
         targetSdkVersion 24
-        versionCode 15
-        versionName "1.0 RC 3"
+        versionCode 16
+        versionName "1.0 RC 4"
     }
     buildTypes {
         release {
