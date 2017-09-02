@@ -29,6 +29,7 @@ public class CoralSystemDeck extends Game {
     public static final Color BACKGROUND_COLOR = Color.valueOf("#2196F3");
 
     private AssetManager assetManager;
+    private String atlasPath;
 
     @Override
     public void create() {
@@ -49,7 +50,9 @@ public class CoralSystemDeck extends Game {
     }
 
     public TextureAtlas getAtlas() {
-        return getAssetManager().get(DensityFileResolver.resolve("pack.atlas"));
+        if (atlasPath == null)
+            atlasPath = DensityFileResolver.resolve("pack.atlas");
+        return getAssetManager().get(atlasPath);
     }
 
     public Skin getUISkin() {

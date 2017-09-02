@@ -16,6 +16,7 @@ import com.badlogic.gdx.utils.Align;
 import ferjogames.coralsystemdeck.CoralSystemDeck;
 import ferjogames.coralsystemdeck.actors.BackArrow;
 import ferjogames.coralsystemdeck.actors.Image;
+import ferjogames.coralsystemdeck.actors.PlaceholderTextField;
 import ferjogames.coralsystemdeck.actors.Text;
 import ferjogames.coralsystemdeck.dialogs.SimpleDialog;
 import ferjogames.coralsystemdeck.logic.Addition;
@@ -31,8 +32,6 @@ import ferjogames.coralsystemdeck.utils.Utils;
  */
 
 public class NameScreen extends AbstractScreen {
-
-    private boolean nameEntered;
 
     public NameScreen(final CoralSystemDeck game) {
         super(game);
@@ -55,28 +54,26 @@ public class NameScreen extends AbstractScreen {
 
         final String lastPlayerName = GamePreferences.getLastPlayerName();
         final String namePlaceholder = I18N.get("name");
-        final TextField textField = new TextField(lastPlayerName.trim().isEmpty() ? namePlaceholder : lastPlayerName, style);
+        final PlaceholderTextField textField = new PlaceholderTextField(lastPlayerName, style);
         textField.setMaxLength(9);
         textField.setBounds(85, 95, 316, 165);
         textField.setAlignment(Align.center);
+        textField.setPlaceholder(namePlaceholder);
         textField.setOnscreenKeyboard(new TextField.OnscreenKeyboard() {
             @Override
             public void show(boolean visible) {
                 Gdx.input.getTextInput(new Input.TextInputListener() {
                     @Override
                     public void input(String text) {
-                        nameEntered = true;
                         textField.setText(text.toUpperCase());
                         GamePreferences.putLastPlayerName(textField.getText());
-                        if (textField.getText().isEmpty())
-                            textField.setText(namePlaceholder);
                     }
 
                     @Override
                     public void canceled() {
 
                     }
-                }, I18N.get("whats_your_name"), textField.getText().equals(namePlaceholder) ? "" : textField.getText(), textField.getText().trim().isEmpty() ? namePlaceholder : "");
+                }, I18N.get("whats_your_name"), textField.getText(), textField.getText().trim().isEmpty() ? namePlaceholder : "");
             }
         });
         getStage().addActor(textField);
@@ -97,7 +94,7 @@ public class NameScreen extends AbstractScreen {
         textButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                if ((lastPlayerName.trim().isEmpty() && !nameEntered) || textField.getText().trim().isEmpty()) {
+                if (textField.getText().trim().isEmpty()) {
                     new SimpleDialog(game, I18N.get("enter_name_descr"), I18N.get("enter_name_btn")).show(stage);
                 } else {
                     game.setScreen(new OperationsScreen(game, textField.getText()));

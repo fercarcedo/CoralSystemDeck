@@ -46,7 +46,6 @@ public class LoadingScreen extends AbstractScreen {
         long startTime = System.currentTimeMillis();
 
         if (game.getAssetManager().update()) {
-            System.out.println(game.getAssetManager().get(DensityFileResolver.resolve("pack.atlas"), TextureAtlas.class).getRegions());
             game.setScreen(new MainScreen(game));
         } else if (loadingText != null) {
             long time = System.currentTimeMillis() - startTime;
