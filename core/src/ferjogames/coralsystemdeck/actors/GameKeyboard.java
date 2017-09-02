@@ -26,7 +26,6 @@ public class GameKeyboard extends Group {
     }
 
     private Image background;
-    private boolean visible;
     private KeyboardButton[] numberButtons;
     private ImageButton cancelButton, confirmButton;
     private KeyboardListener listener;
@@ -79,6 +78,7 @@ public class GameKeyboard extends Group {
 
         addActor(cancelButton);
         addActor(confirmButton);
+        setVisible(false);
     }
 
     private void setKeyboardButtonListener(final KeyboardButton numberButton) {
@@ -98,16 +98,12 @@ public class GameKeyboard extends Group {
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        if (visible) {
+        if (isVisible()) {
             background.draw(batch, parentAlpha);
             for (KeyboardButton numberButton : numberButtons)
                 numberButton.draw(batch, parentAlpha);
             cancelButton.draw(batch, parentAlpha);
             confirmButton.draw(batch, parentAlpha);
         }
-    }
-
-    public void setVisible(boolean visible) {
-        this.visible = visible;
     }
 }
