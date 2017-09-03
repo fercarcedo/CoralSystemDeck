@@ -60,7 +60,7 @@ public class GameRocket extends Actor {
         labelStyle.font = game.getFont("Roboto-Regular43");
         correctText = new Label("", labelStyle);
         correctText.setColor(Colors.GREEN);
-        correctText.setY(150);
+        correctText.setY(getY() + 150);
         correctText.setX(ROCKET_X_POS);
         correctText.setWidth(ROCKET_WIDTH);
         correctText.setAlignment(Align.center);
@@ -84,6 +84,7 @@ public class GameRocket extends Actor {
         rocketImage.setY(getY());
         operationText.setY(getY() + textYOffset);
         answerText.setY(getY() + answerTextYOffset);
+        correctText.setY(getY() + 150);
     }
 
     @Override
@@ -205,18 +206,21 @@ public class GameRocket extends Actor {
     }
 
     public void showResult() {
-        checkAnswer();
-        moveDown();
-        setSide(Side.BACK);
-        setResult(operation.getResult());
-        addAction(
-                new SequenceAction(
-                        new FlipOut(getX(), getWidth(), ROTATE_DURATION),
-                        new ChangeImage(getImage(),
-                                new Sprite(game.getAtlas().findRegion(ROCKET_BACK_IMAGE))),
-                        new FlipIn(getX(), getWidth(), ROTATE_DURATION)
-                )
-        );
+        if (side == Side.FRONT) {
+            checkAnswer();
+            moveDown();
+            setSide(Side.BACK);
+            setResult(operation.getResult());
+
+            addAction(
+                    new SequenceAction(
+                            new FlipOut(getX(), getWidth(), ROTATE_DURATION),
+                            new ChangeImage(getImage(),
+                                    new Sprite(game.getAtlas().findRegion(ROCKET_BACK_IMAGE))),
+                            new FlipIn(getX(), getWidth(), ROTATE_DURATION)
+                    )
+            );
+        }
     }
 
     private void checkAnswer() {
@@ -240,12 +244,14 @@ public class GameRocket extends Actor {
     }
 
     public void moveUp() {
-        moveUp = new MoveUp(253);
-        showKeyboard = new ShowKeyboard(keyboard);
-        addAction(new SequenceAction(
-                moveUp,
-                showKeyboard
-        ));
+        if (side == Side.FRONT) {
+            moveUp = new MoveUp(253);
+            showKeyboard = new ShowKeyboard(keyboard);
+            addAction(new SequenceAction(
+                    moveUp,
+                    showKeyboard
+            ));
+        }
     }
 
     public void moveDown() {

@@ -109,7 +109,9 @@ public class GameScreen extends AbstractScreen implements GameKeyboard.KeyboardL
     }
 
     private void initGame() {
-        if (totalSeconds <= 0) {
+        if (totalSeconds <= 1) {
+            if (totalSeconds == 1)
+                totalCountDownCircle.setValue(String.format(Locale.getDefault(), "%02d", --totalSeconds));
             launchResult();
             return;
         }
