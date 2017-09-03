@@ -6,6 +6,7 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.tools.texturepacker.TexturePacker;
 
 import ferjogames.coralsystemdeck.CoralSystemDeck;
+import ferjogames.coralsystemdeck.utils.DensityFileResolver;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {
@@ -25,6 +26,8 @@ public class DesktopLauncher {
 		TexturePacker.process(settings, "../../images/hdpi", "hdpi", "pack");
 		TexturePacker.process(settings, "../../images/mdpi", "mdpi", "pack");
 		TexturePacker.process(settings, "../../images/ldpi", "ldpi", "pack");
+
+		DensityFileResolver.HIGHER_DENSITIES_FIRST = true;
 		new LwjglApplication(new CoralSystemDeck(), config);
 	}
 }
