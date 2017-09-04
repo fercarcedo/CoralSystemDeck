@@ -30,6 +30,7 @@ public class CoralSystemDeck extends Game {
 
     private AssetManager assetManager;
     private String atlasPath;
+    private boolean paused;
 
     @Override
     public void create() {
@@ -61,5 +62,21 @@ public class CoralSystemDeck extends Game {
 
     public AssetManager getAssetManager() {
         return assetManager;
+    }
+
+    public boolean isPaused() {
+        return paused;
+    }
+
+    @Override
+    public void pause() {
+        super.pause();
+        paused = true;
+    }
+
+    @Override
+    public void resume() {
+        super.resume();
+        paused = false;
     }
 }

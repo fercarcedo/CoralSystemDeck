@@ -3,6 +3,7 @@ package ferjogames.coralsystemdeck.actors;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -212,14 +213,18 @@ public class GameRocket extends Actor {
             setSide(Side.BACK);
             setResult(operation.getResult());
 
-            addAction(
-                    new SequenceAction(
-                            new FlipOut(getX(), getWidth(), ROTATE_DURATION),
-                            new ChangeImage(getImage(),
-                                    new Sprite(game.getAtlas().findRegion(ROCKET_BACK_IMAGE))),
-                            new FlipIn(getX(), getWidth(), ROTATE_DURATION)
-                    )
-            );
+            if (!game.isPaused()) {
+                addAction(
+                        new SequenceAction(
+                                new FlipOut(getX(), getWidth(), ROTATE_DURATION),
+                                new ChangeImage(getImage(),
+                                        new Sprite(game.getAtlas().findRegion(ROCKET_BACK_IMAGE))),
+                                new FlipIn(getX(), getWidth(), ROTATE_DURATION)
+                        )
+                );
+            } else {
+                getImage().setSprite(new Sprite(game.getAtlas().findRegion(ROCKET_BACK_IMAGE)));
+            }
         }
     }
 
@@ -247,10 +252,17 @@ public class GameRocket extends Actor {
         if (side == Side.FRONT) {
             moveUp = new MoveUp(253);
             showKeyboard = new ShowKeyboard(keyboard);
-            addAction(new SequenceAction(
-                    moveUp,
-                    showKeyboard
-            ));
+
+            if (!game.isPaused()) {
+                addAction(new SequenceAction(
+                        moveUp,
+                        showKeyboard
+                ));
+            } else {
+                setY(253);
+                if (keyboard != null)
+                    keyboard.setVisible(true);
+            }
         }
     }
 
