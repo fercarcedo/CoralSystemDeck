@@ -11,7 +11,7 @@ import java.util.Locale;
 
 public class I18N {
 
-    private static final I18NBundle bundle = I18NBundle.createBundle(Gdx.files.internal("i18n/strings"));
+    private static I18NBundle bundle = createBundle();
 
     public static String get(String key) {
         return bundle.get(key);
@@ -19,5 +19,13 @@ public class I18N {
 
     public static String get(String key, Object... args) {
         return bundle.format(key, args);
+    }
+
+    private static I18NBundle createBundle() {
+        return I18NBundle.createBundle(Gdx.files.internal("i18n/strings"));
+    }
+
+    public static void recreateBundle() {
+        bundle = createBundle();
     }
 }

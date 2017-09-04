@@ -20,6 +20,7 @@ import ferjogames.coralsystemdeck.screens.LoadingScreen;
 import ferjogames.coralsystemdeck.screens.MainScreen;
 import ferjogames.coralsystemdeck.screens.OperationsScreen;
 import ferjogames.coralsystemdeck.utils.DensityFileResolver;
+import ferjogames.coralsystemdeck.utils.I18N;
 import ferjogames.coralsystemdeck.utils.Utils;
 
 public class CoralSystemDeck extends Game {
@@ -34,6 +35,7 @@ public class CoralSystemDeck extends Game {
 
     @Override
     public void create() {
+        I18N.recreateBundle();
         assetManager = new AssetManager();
         setScreen(new LoadingScreen(this));
     }
