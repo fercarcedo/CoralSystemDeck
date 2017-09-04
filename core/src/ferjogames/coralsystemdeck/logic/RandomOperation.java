@@ -40,6 +40,21 @@ public class RandomOperation extends Operation {
         return "aleatorio";
     }
 
+    @Override
+    public int getFirstNumber() {
+        return operation.getFirstNumber();
+    }
+
+    @Override
+    public int getSecondNumber() {
+        return operation.getSecondNumber();
+    }
+
+    @Override
+    public int getResult() {
+        return operation.getResult();
+    }
+
     private Operation generateRandomOperation() {
         int index = (int) (Math.random() * OPERATIONS.size());
 
