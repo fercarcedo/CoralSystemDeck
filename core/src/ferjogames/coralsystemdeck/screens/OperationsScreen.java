@@ -42,7 +42,7 @@ public class OperationsScreen extends AbstractScreen {
 
         getStage().addActor(additionButton);
 
-        substractionButton = new OperationButton(game, camera, 380, 550, Colors.PURPLE, 370, 575, Colors.YELLOW, "-", "Roboto-Bold60");
+        substractionButton = new OperationButton(game, camera, 380, 550, Colors.PURPLE, 365, 575, Colors.YELLOW, "-");
         getStage().addActor(substractionButton);
 
         randomButton = new OperationButton(game, camera, 240, 330, Colors.RED, 225, 355, Colors.BLACK, "?");
@@ -51,7 +51,7 @@ public class OperationsScreen extends AbstractScreen {
         productButton = new OperationButton(game, camera, 100, 110, Colors.GREEN, 80, 133, Colors.BLACK, "X");
         getStage().addActor(productButton);
 
-        divisionButton = new OperationButton(game, camera, 380, 110, Colors.ORANGE, 373, 140, Colors.BLACK, ":", "Roboto-Bold65");
+        divisionButton = new OperationButton(game, camera, 380, 110, Colors.ORANGE, 373, 140, Colors.BLACK, ":");
         getStage().addActor(divisionButton);
         setClickListeners();
         SoundUtils.playSound(game, I18N.get("letsplaysound"));

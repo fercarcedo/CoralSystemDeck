@@ -150,6 +150,11 @@ public class HighscoresScreen extends AbstractScreen {
     private List<Score> mockHighscores() {
         List<Score> highscores = new ArrayList<>();
         highscores.add(new Score("PEDRO", 150, Colors.YELLOW.toString()));
+        highscores.add(new Score("JUAN", 120, Colors.GREEN.toString()));
+        highscores.add(new Score("JAVI", 100, Colors.ORANGE.toString()));
+        highscores.add(new Score("FER", 90, Colors.BLUE.toString()));
+        highscores.add(new Score("LUIS", 80, Colors.WOOD.toString()));
+        highscores.add(new Score("DIEGO", 50, Colors.CORAL.toString()));
         return highscores;
     }
 }

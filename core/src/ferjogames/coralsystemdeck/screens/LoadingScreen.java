@@ -66,6 +66,7 @@ public class LoadingScreen extends AbstractScreen {
         FileHandleResolver resolver = new InternalFileHandleResolver();
         assetManager.setLoader(FreeTypeFontGenerator.class, new FreeTypeFontGeneratorLoader(resolver));
         assetManager.setLoader(BitmapFont.class, ".ttf", new FreetypeFontLoader(new InternalFileHandleResolver()));
+        FreeTypeFontGenerator.setMaxTextureSize(2048);
 
         FreetypeFontLoader.FreeTypeFontLoaderParameter fontParams = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
         fontParams.fontFileName = "fonts/font.ttf";
@@ -117,6 +118,18 @@ public class LoadingScreen extends AbstractScreen {
 
         fontParams = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
         fontParams.fontFileName = "fonts/Roboto-Regular.ttf";
+        fontParams.fontParameters.size = Utils.fontSizeToPixels(39);
+
+        assetManager.load("Roboto-Regular39.ttf", BitmapFont.class, fontParams);
+
+        fontParams = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
+        fontParams.fontFileName = "fonts/Roboto-Regular.ttf";
+        fontParams.fontParameters.size = Utils.fontSizeToPixels(37);
+
+        assetManager.load("Roboto-Regular37.ttf", BitmapFont.class, fontParams);
+
+        fontParams = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
+        fontParams.fontFileName = "fonts/Roboto-Regular.ttf";
         fontParams.fontParameters.size = Utils.fontSizeToPixels(38);
 
         assetManager.load("Roboto-Regular38.ttf", BitmapFont.class, fontParams);
@@ -135,9 +148,39 @@ public class LoadingScreen extends AbstractScreen {
 
         fontParams = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
         fontParams.fontFileName = "fonts/Roboto-Regular.ttf";
+        fontParams.fontParameters.size = Utils.fontSizeToPixels(55);
+
+        assetManager.load("Roboto-Regular55.ttf", BitmapFont.class, fontParams);
+
+        fontParams = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
+        fontParams.fontFileName = "fonts/Roboto-Regular.ttf";
+        fontParams.fontParameters.size = Utils.fontSizeToPixels(50);
+
+        assetManager.load("Roboto-Regular50.ttf", BitmapFont.class, fontParams);
+
+        fontParams = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
+        fontParams.fontFileName = "fonts/Roboto-Regular.ttf";
         fontParams.fontParameters.size = Utils.fontSizeToPixels(32);
 
         assetManager.load("Roboto-Regular32.ttf", BitmapFont.class, fontParams);
+
+        fontParams = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
+        fontParams.fontFileName = "fonts/Roboto-Regular.ttf";
+        fontParams.fontParameters.size = Utils.fontSizeToPixels(40);
+
+        assetManager.load("Roboto-Regular40.ttf", BitmapFont.class, fontParams);
+
+        fontParams = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
+        fontParams.fontFileName = "fonts/Roboto-Regular.ttf";
+        fontParams.fontParameters.size = Utils.fontSizeToPixels(35);
+
+        assetManager.load("Roboto-Regular35.ttf", BitmapFont.class, fontParams);
+
+        fontParams = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
+        fontParams.fontFileName = "fonts/Roboto-Regular.ttf";
+        fontParams.fontParameters.size = Utils.fontSizeToPixels(30);
+
+        assetManager.load("Roboto-Regular30.ttf", BitmapFont.class, fontParams);
 
         fontParams = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
         fontParams.fontFileName = "fonts/Roboto-Black.ttf";
@@ -152,16 +195,10 @@ public class LoadingScreen extends AbstractScreen {
         assetManager.load("Roboto-Bold70.ttf", BitmapFont.class, fontParams);
 
         fontParams = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
-        fontParams.fontFileName = "fonts/Roboto-Bold.ttf";
-        fontParams.fontParameters.size = Utils.fontSizeToPixels(65);
+        fontParams.fontFileName = "fonts/Roboto-Regular.ttf";
+        fontParams.fontParameters.size = Utils.fontSizeToPixels(53);
 
-        assetManager.load("Roboto-Bold65.ttf", BitmapFont.class, fontParams);
-
-        fontParams = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
-        fontParams.fontFileName = "fonts/Roboto-Bold.ttf";
-        fontParams.fontParameters.size = Utils.fontSizeToPixels(60);
-
-        assetManager.load("Roboto-Bold60.ttf", BitmapFont.class, fontParams);
+        assetManager.load("Roboto-Regular53.ttf", BitmapFont.class, fontParams);
 
         fontParams = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
         fontParams.fontFileName = "fonts/Roboto-Bold.ttf";

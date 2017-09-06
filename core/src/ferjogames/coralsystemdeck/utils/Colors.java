@@ -22,6 +22,7 @@ public class Colors {
     public static final Color WHITE = Color.valueOf("#FFFFFF");
     public static final Color WOOD = Color.valueOf("#663300");
     public static final Color BLUE = Color.valueOf("#2196F3");
+    public static final Color CORAL = Color.valueOf("#FF7F50");
 
     private static String[] createColors() {
         String[] colors = new String[20];

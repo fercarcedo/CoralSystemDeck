@@ -105,10 +105,6 @@ public class GameRocket extends Actor {
         String operationString =  operation.getFirstNumber() + " " +
                         operation.getOperationCharacter() + " " + operation.getSecondNumber();
 
-        if (':' == operation.getOperationCharacter() && operationString.length() == 6)
-            operationString = operation.getFirstNumber() + "  " +
-                    operation.getOperationCharacter() + " " + operation.getSecondNumber();
-
         operationText.setText(operationString);
 
         switch (operationString.length()) {
