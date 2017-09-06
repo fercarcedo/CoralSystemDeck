@@ -153,6 +153,18 @@ public class LoadingScreen extends AbstractScreen {
 
         fontParams = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
         fontParams.fontFileName = "fonts/Roboto-Bold.ttf";
+        fontParams.fontParameters.size = Utils.fontSizeToPixels(65);
+
+        assetManager.load("Roboto-Bold65.ttf", BitmapFont.class, fontParams);
+
+        fontParams = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
+        fontParams.fontFileName = "fonts/Roboto-Bold.ttf";
+        fontParams.fontParameters.size = Utils.fontSizeToPixels(60);
+
+        assetManager.load("Roboto-Bold60.ttf", BitmapFont.class, fontParams);
+
+        fontParams = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
+        fontParams.fontFileName = "fonts/Roboto-Bold.ttf";
         fontParams.fontParameters.size = Utils.fontSizeToPixels(35);
 
         assetManager.load("Roboto-Bold35.ttf", BitmapFont.class, fontParams);

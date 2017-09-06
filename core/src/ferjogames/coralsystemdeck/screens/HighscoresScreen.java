@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Align;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ferjogames.coralsystemdeck.CoralSystemDeck;
@@ -144,5 +145,11 @@ public class HighscoresScreen extends AbstractScreen {
             operation.setDifficulty(Operation.Difficulty.HARD);
 
         game.setScreen(new HighscoresScreen(game, playerName, operation));
+    }
+
+    private List<Score> mockHighscores() {
+        List<Score> highscores = new ArrayList<>();
+        highscores.add(new Score("PEDRO", 150, Colors.YELLOW.toString()));
+        return highscores;
     }
 }
