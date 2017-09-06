@@ -103,7 +103,7 @@ public class GameRocket extends Actor {
         answerText.setText("");
         this.operation = operation;
         String operationString =  operation.getFirstNumber() + " " +
-                        operation.getOperationCharacter() + " " + operation.getSecondNumber();
+                operation.getOperationCharacter() + " " + operation.getSecondNumber();
 
         operationText.setText(operationString);
 
