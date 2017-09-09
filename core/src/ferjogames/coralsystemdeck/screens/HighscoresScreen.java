@@ -84,7 +84,12 @@ public class HighscoresScreen extends AbstractScreen {
         Table scrollTable = new Table();
         scrollTable.align(Align.topLeft);
         //Group group = new Group();
-        List<Score> highScores = GamePreferences.getHighScores(operation);
+        List<Score> highScores;
+        if (CoralSystemDeck.SCREENSHOT_MODE) {
+            highScores = mockHighscores();
+        } else {
+            highScores = GamePreferences.getHighScores(operation);
+        }
 
         for (int i = 0; i < highScores.size(); i++) {
             Score highScore = highScores.get(i);
@@ -148,13 +153,19 @@ public class HighscoresScreen extends AbstractScreen {
     }
 
     private List<Score> mockHighscores() {
+        String[] names;
+        if (Utils.isSpanish())
+            names = new String[] { "PEDRO", "JUAN", "JAVI", "FER", "LUIS", "DIEGO" };
+        else
+            names = new String[] { "PETER", "JACK", "OLIVER", "HARRY", "JAMES", "WILLIAM" };
+
         List<Score> highscores = new ArrayList<>();
-        highscores.add(new Score("PEDRO", 150, Colors.YELLOW.toString()));
-        highscores.add(new Score("JUAN", 120, Colors.GREEN.toString()));
-        highscores.add(new Score("JAVI", 100, Colors.ORANGE.toString()));
-        highscores.add(new Score("FER", 90, Colors.BLUE.toString()));
-        highscores.add(new Score("LUIS", 80, Colors.WOOD.toString()));
-        highscores.add(new Score("DIEGO", 50, Colors.CORAL.toString()));
+        highscores.add(new Score(names[0], 150, Colors.YELLOW.toString()));
+        highscores.add(new Score(names[1], 120, "#4caf50"));
+        highscores.add(new Score(names[2], 100, Colors.ORANGE.toString()));
+        highscores.add(new Score(names[3], 90, Colors.BLUE.toString()));
+        highscores.add(new Score(names[4], 80, "#CDAA7D"));
+        highscores.add(new Score(names[5], 50, Colors.CORAL.toString()));
         return highscores;
     }
 }

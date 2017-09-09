@@ -22,6 +22,8 @@ import ferjogames.coralsystemdeck.actors.GameKeyboard;
 import ferjogames.coralsystemdeck.actors.GameRocket;
 import ferjogames.coralsystemdeck.actors.Image;
 import ferjogames.coralsystemdeck.actors.ToolbarTitle;
+import ferjogames.coralsystemdeck.logic.Addition;
+import ferjogames.coralsystemdeck.logic.MockOperation;
 import ferjogames.coralsystemdeck.logic.Operation;
 import ferjogames.coralsystemdeck.utils.Colors;
 
@@ -44,11 +46,14 @@ public class GameScreen extends AbstractScreen implements GameKeyboard.KeyboardL
     private int secondsRemaining = CARD_SECONDS;
     private int totalSeconds = TOTAL_CARD_SECONDS;
 
-    public GameScreen(CoralSystemDeck game, String playerName, final Operation operation) {
+    public GameScreen(CoralSystemDeck game, String playerName, Operation operation) {
         super(game);
         this.playerName = playerName;
         this.operation = operation;
 
+        if (CoralSystemDeck.SCREENSHOT_MODE) {
+            this.operation = operation = new MockOperation();
+        }
         rocket = new GameRocket(game);
         final GameKeyboard keyboard = new GameKeyboard(game);
         keyboard.setListener(this);

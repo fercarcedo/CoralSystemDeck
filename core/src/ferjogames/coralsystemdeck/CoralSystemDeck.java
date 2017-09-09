@@ -25,6 +25,7 @@ import ferjogames.coralsystemdeck.utils.Utils;
 
 public class CoralSystemDeck extends Game {
 
+    public static final boolean SCREENSHOT_MODE = false;
     public static final float WORLD_WIDTH = 480;
     public static final float WORLD_HEIGHT = 720;
     public static final Color BACKGROUND_COLOR = Color.valueOf("#2196F3");

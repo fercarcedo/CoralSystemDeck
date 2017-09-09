@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 import de.tomgrill.gdxdialogs.core.GDXDialogs;
 import de.tomgrill.gdxdialogs.core.GDXDialogsSystem;
@@ -121,5 +122,9 @@ public final class Utils {
 
     private static boolean uniqueHighScore(List<Score> highScores, String studentName, int points) {
         return points > 0 && !Utils.inHighScores(highScores, studentName, points);
+    }
+
+    public static boolean isSpanish() {
+        return Locale.getDefault().getLanguage().startsWith("es");
     }
 }

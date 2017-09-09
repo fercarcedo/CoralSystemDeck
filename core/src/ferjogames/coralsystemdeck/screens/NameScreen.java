@@ -52,7 +52,14 @@ public class NameScreen extends AbstractScreen {
         style.font = game.getAssetManager().get("font40.ttf");
         style.font.getData().setScale(CoralSystemDeck.WORLD_WIDTH / Gdx.graphics.getWidth());
 
-        final String lastPlayerName = GamePreferences.getLastPlayerName();
+        String lastPlayerName;
+
+        if (CoralSystemDeck.SCREENSHOT_MODE) {
+            lastPlayerName = "DAVID";
+        } else {
+            lastPlayerName = GamePreferences.getLastPlayerName();
+        }
+
         final String namePlaceholder = I18N.get("name");
         final PlaceholderTextField textField = new PlaceholderTextField(lastPlayerName, style);
         textField.setMaxLength(9);
