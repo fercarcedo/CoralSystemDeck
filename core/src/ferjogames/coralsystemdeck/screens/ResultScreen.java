@@ -45,6 +45,11 @@ public class ResultScreen extends AbstractScreen {
         super(game);
         this.playerName = playerName;
         this.operation = operation;
+
+        if (CoralSystemDeck.SCREENSHOT_MODE) {
+            correctAnswers = 17;
+            incorrectAnswers = 1;
+        }
         getStage().addActor(GraphicUtils.createLabel(I18N.get("results"), game, "font55", Colors.YELLOW, 0, 630, CoralSystemDeck.WORLD_WIDTH));
         getStage().addActor(new Image(game, "naveespacial", 180, 455, 110, 160));
 

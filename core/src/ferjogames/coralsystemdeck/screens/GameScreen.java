@@ -61,6 +61,9 @@ public class GameScreen extends AbstractScreen implements GameKeyboard.KeyboardL
         getStage().addActor(keyboard);
         getStage().addActor(rocket);
 
+        if (CoralSystemDeck.SCREENSHOT_MODE) {
+            rocket.setAnswer(String.valueOf(operation.getResult()));
+        }
         Pixmap pixmap = new Pixmap(480, 75, Pixmap.Format.RGBA8888);
         pixmap.setColor(Colors.BLUE);
         pixmap.fill();
@@ -98,6 +101,10 @@ public class GameScreen extends AbstractScreen implements GameKeyboard.KeyboardL
 
     @Override
     public void confirmClicked() {
+        if (CoralSystemDeck.SCREENSHOT_MODE) {
+            totalCountDownCircle.setValue(String.format(Locale.getDefault(), "%02d", 51));
+            cardCountDownCircle.setValue(String.format(Locale.getDefault(), "%02d", 1));
+        }
         secondsRemaining = CARD_SECONDS;
         rocket.showResult();
 
@@ -131,9 +138,15 @@ public class GameScreen extends AbstractScreen implements GameKeyboard.KeyboardL
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                totalCountDownCircle.setValue(String.format(Locale.getDefault(), "%02d", --totalSeconds));
-                cardCountDownCircle.setValue(String.format(Locale.getDefault(), "%02d", --secondsRemaining));
-
+                --totalSeconds;
+                --secondsRemaining;
+                if (CoralSystemDeck.SCREENSHOT_MODE) {
+                    totalCountDownCircle.setValue(String.format(Locale.getDefault(), "%02d", 55));
+                    cardCountDownCircle.setValue(String.format(Locale.getDefault(), "%02d", 5));
+                } else {
+                    totalCountDownCircle.setValue(String.format(Locale.getDefault(), "%02d", totalSeconds));
+                    cardCountDownCircle.setValue(String.format(Locale.getDefault(), "%02d", secondsRemaining));
+                }
                 if (totalSeconds <= 0 || secondsRemaining <= 0) {
                     if (timer != null)
                         timer.cancel();

@@ -102,6 +102,9 @@ public final class Utils {
     }
 
     public static boolean newRecord(List<Score> highScores, String studentName, int points) {
+        if (CoralSystemDeck.SCREENSHOT_MODE)
+            return true;
+
         if (uniqueHighScore(highScores, studentName, points)) {
             if (highScores.isEmpty())
                 return true;

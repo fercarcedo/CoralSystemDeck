@@ -35,7 +35,7 @@ public class NameScreen extends AbstractScreen {
 
     public NameScreen(final CoralSystemDeck game) {
         super(game);
-        getStage().addActor(new Text(game, "font35", 110, 690, I18N.get("whats_your_name"), Color.YELLOW));
+        getStage().addActor(new Text(game, "font35", 110, 695, I18N.get("whats_your_name"), Color.YELLOW));
         final Image nave = new Image(game, "naveespacial", 125, 260, 230, 370);
         getStage().addActor(nave);
 
