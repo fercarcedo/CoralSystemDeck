@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
@@ -36,7 +37,6 @@ public class Android implements Platform {
                 if (context != null) {
                     AlertDialog.Builder alert = new AlertDialog.Builder(context);
                     alert.setTitle(title);
-                    alert.setCancelable(false);
                     final EditText input = new EditText(context);
                     input.setHint(hint);
                     input.setText(text);
@@ -51,7 +51,6 @@ public class Android implements Platform {
                                     listener.input(input.getText().toString());
                                 }
                             });
-                            hideSoftKeyboard(context, input);
                         }
                     });
                     alert.setNegativeButton(context.getString(android.R.string.cancel), new DialogInterface.OnClickListener() {
@@ -62,7 +61,6 @@ public class Android implements Platform {
                                     listener.canceled();
                                 }
                             });
-                            hideSoftKeyboard(context, input);
                         }
                     });
                     alert.setOnCancelListener(new DialogInterface.OnCancelListener() {
@@ -74,13 +72,11 @@ public class Android implements Platform {
                                     listener.canceled();
                                 }
                             });
-                            hideSoftKeyboard(context, input);
                         }
                     });
-                    alert.show();
-                    input.requestFocus();
-                    InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+                    AlertDialog dialog = alert.show();
+                    dialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
+                    dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
                 }
             }
         });
