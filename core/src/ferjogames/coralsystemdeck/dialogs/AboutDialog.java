@@ -58,7 +58,7 @@ public class AboutDialog extends Dialog {
 
         getButtonTable().padTop(10).padBottom(0);
 
-        TextButton okButton = GraphicUtils.createTextButtonAbsolute(I18N.get("close"), 280, 300, 110, 20,
+        TextButton okButton = GraphicUtils.createTextButtonAbsolute(I18N.get("close").toUpperCase(), 280, 300, 110, 20,
                 game.getFont("font35"), Colors.WHITE, Colors.BLUE);
         button(okButton, true);
         key(Input.Keys.ENTER, true).key(Input.Keys.ESCAPE, true);
