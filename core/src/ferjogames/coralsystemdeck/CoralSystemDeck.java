@@ -33,6 +33,11 @@ public class CoralSystemDeck extends Game {
     private AssetManager assetManager;
     private String atlasPath;
     private boolean paused;
+    private Platform platform;
+
+    public CoralSystemDeck(Platform platform) {
+        this.platform = platform;
+    }
 
     @Override
     public void create() {
@@ -69,6 +74,10 @@ public class CoralSystemDeck extends Game {
 
     public boolean isPaused() {
         return paused;
+    }
+
+    public Platform getPlatform() {
+        return platform;
     }
 
     @Override

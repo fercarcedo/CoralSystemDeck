@@ -16,7 +16,7 @@ public class AndroidLauncher extends AndroidApplication {
 		Fabric.with(this, new Crashlytics());
 		FrameLayout layout = new FrameLayout(this);
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
-		layout.addView(initializeForView(new CoralSystemDeck(), config));
+		layout.addView(initializeForView(new CoralSystemDeck(new Android(this)), config));
 		setContentView(layout);
 	}
 

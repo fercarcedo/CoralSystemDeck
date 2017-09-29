@@ -69,7 +69,7 @@ public class NameScreen extends AbstractScreen {
         textField.setOnscreenKeyboard(new TextField.OnscreenKeyboard() {
             @Override
             public void show(boolean visible) {
-                Gdx.input.getTextInput(new Input.TextInputListener() {
+                game.getPlatform().getTextInput(new Input.TextInputListener() {
                     @Override
                     public void input(String text) {
                         textField.setText(text.toUpperCase());

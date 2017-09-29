@@ -28,6 +28,6 @@ public class DesktopLauncher {
 		TexturePacker.process(settings, "../../images/ldpi", "ldpi", "pack");
 
 		DensityFileResolver.HIGHER_DENSITIES_FIRST = true;
-		new LwjglApplication(new CoralSystemDeck(), config);
+		new LwjglApplication(new CoralSystemDeck(new Desktop()), config);
 	}
 }
