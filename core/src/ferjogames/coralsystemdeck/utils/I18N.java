@@ -22,6 +22,7 @@ public class I18N {
     }
 
     private static I18NBundle createBundle() {
+        System.err.println(Gdx.files.internal("i18n/strings").file().getAbsolutePath());
         return I18NBundle.createBundle(Gdx.files.internal("i18n/strings"));
     }
 

@@ -20,12 +20,12 @@ public class DesktopLauncher {
 		settings.maxHeight = 2048;
 		settings.maxWidth = 2048;
 
-		TexturePacker.process(settings, "../../images/xxxhdpi", "xxxhdpi", "pack");
-		TexturePacker.process(settings, "../../images/xxhdpi", "xxhdpi", "pack");
-		TexturePacker.process(settings, "../../images/xhdpi", "xhdpi", "pack");
-		TexturePacker.process(settings, "../../images/hdpi", "hdpi", "pack");
-		TexturePacker.process(settings, "../../images/mdpi", "mdpi", "pack");
-		TexturePacker.process(settings, "../../images/ldpi", "ldpi", "pack");
+		TexturePacker.process(settings, "images/xxxhdpi", "xxxhdpi", "pack");
+		TexturePacker.process(settings, "images/xxhdpi", "xxhdpi", "pack");
+		TexturePacker.process(settings, "images/xhdpi", "xhdpi", "pack");
+		TexturePacker.process(settings, "images/hdpi", "hdpi", "pack");
+		TexturePacker.process(settings, "images/mdpi", "mdpi", "pack");
+		TexturePacker.process(settings, "images/ldpi", "ldpi", "pack");
 
 		DensityFileResolver.HIGHER_DENSITIES_FIRST = true;
 		new LwjglApplication(new CoralSystemDeck(new Desktop()), config);
