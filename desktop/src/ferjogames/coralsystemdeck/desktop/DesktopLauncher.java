@@ -15,8 +15,10 @@ public class DesktopLauncher {
 		config.height = 720;
 		config.resizable = false;
 		config.useHDPI = true;
-
-		TexturePacker.Settings settings = new TexturePacker.Settings();
+		config.addIcon("images/ic_launcher_128_128.png", Files.FileType.Internal);
+		config.addIcon("images/ic_launcher_32_32.png", Files.FileType.Internal);
+		config.addIcon("images/ic_launcher_16_16.png", Files.FileType.Internal);
+		/*TexturePacker.Settings settings = new TexturePacker.Settings();
 		settings.maxHeight = 2048;
 		settings.maxWidth = 2048;
 
@@ -25,7 +27,7 @@ public class DesktopLauncher {
 		TexturePacker.process(settings, "images/xhdpi", "xhdpi", "pack");
 		TexturePacker.process(settings, "images/hdpi", "hdpi", "pack");
 		TexturePacker.process(settings, "images/mdpi", "mdpi", "pack");
-		TexturePacker.process(settings, "images/ldpi", "ldpi", "pack");
+		TexturePacker.process(settings, "images/ldpi", "ldpi", "pack");*/
 
 		DensityFileResolver.HIGHER_DENSITIES_FIRST = true;
 		new LwjglApplication(new CoralSystemDeck(new Desktop()), config);
