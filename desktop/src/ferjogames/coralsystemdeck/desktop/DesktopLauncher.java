@@ -1,9 +1,9 @@
 package ferjogames.coralsystemdeck.desktop;
 
 import com.badlogic.gdx.Files;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.badlogic.gdx.tools.texturepacker.TexturePacker;
 
 import ferjogames.coralsystemdeck.CoralSystemDeck;
 import ferjogames.coralsystemdeck.utils.DensityFileResolver;
@@ -30,6 +30,9 @@ public class DesktopLauncher {
 		TexturePacker.process(settings, "images/ldpi", "ldpi", "pack");*/
 
 		DensityFileResolver.HIGHER_DENSITIES_FIRST = true;
+		if (!(new License().checkLicense())) {
+			System.exit(-1);
+		}
 		new LwjglApplication(new CoralSystemDeck(new Desktop()), config);
 	}
 }

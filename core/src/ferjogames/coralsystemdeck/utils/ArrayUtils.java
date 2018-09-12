@@ -12,7 +12,7 @@ public final class ArrayUtils {
         //Remove starting braces
         arrayAsStr = arrayAsStr.substring(1, arrayAsStr.length() - 1);
         String[] parts = arrayAsStr.split(",");
-        List<String> result = new ArrayList<>();
+        List<String> result = new ArrayList<String>();
 
         //Trim all elements
         for(int i = 0; i < parts.length; i++)

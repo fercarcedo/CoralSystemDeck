@@ -56,7 +56,7 @@ public class GamePreferences {
 
     private static List<Score> parseHighScores(String highScoresStr) {
         String[] highScoresParts = highScoresStr.split(",");
-        List<Score> highScores = new ArrayList<>();
+        List<Score> highScores = new ArrayList<Score>();
 
         for (String highScorePart : highScoresParts) {
             String[] parts = highScorePart.split(":");

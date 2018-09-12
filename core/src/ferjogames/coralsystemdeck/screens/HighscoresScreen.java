@@ -94,7 +94,7 @@ public class HighscoresScreen extends AbstractScreen {
         for (int i = 0; i < highScores.size(); i++) {
             Score highScore = highScores.get(i);
             scrollTable.add(new HighScoreItem(game, Color.valueOf(highScore.getColorHex()),
-                    (i + 1) + "ยบ: " + highScore.getStudentName(), highScore.getPoints()))
+                    (i + 1) + "บ: " + highScore.getStudentName(), highScore.getPoints()))
                     .width(190).height(150).space(30);
 
             if (i % 2 != 0)
@@ -159,7 +159,7 @@ public class HighscoresScreen extends AbstractScreen {
         else
             names = new String[] { "PETER", "JACK", "OLIVER", "HARRY", "JAMES", "WILLIAM" };
 
-        List<Score> highscores = new ArrayList<>();
+        List<Score> highscores = new ArrayList<Score>();
         highscores.add(new Score(names[0], 150, Colors.YELLOW.toString()));
         highscores.add(new Score(names[1], 120, "#4caf50"));
         highscores.add(new Score(names[2], 100, Colors.ORANGE.toString()));
