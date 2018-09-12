@@ -19,8 +19,6 @@ import ferjogames.coralsystemdeck.actors.Image;
 import ferjogames.coralsystemdeck.actors.PlaceholderTextField;
 import ferjogames.coralsystemdeck.actors.Text;
 import ferjogames.coralsystemdeck.dialogs.SimpleDialog;
-import ferjogames.coralsystemdeck.logic.Addition;
-import ferjogames.coralsystemdeck.logic.Operation;
 import ferjogames.coralsystemdeck.utils.GamePreferences;
 import ferjogames.coralsystemdeck.utils.GraphicUtils;
 import ferjogames.coralsystemdeck.utils.I18N;

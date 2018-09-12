@@ -1,30 +1,17 @@
 package ferjogames.coralsystemdeck.screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
-import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Window;
-import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 
 import ferjogames.coralsystemdeck.CoralSystemDeck;
 import ferjogames.coralsystemdeck.actors.Image;
-import ferjogames.coralsystemdeck.actors.Text;
 import ferjogames.coralsystemdeck.dialogs.AboutDialog;
-import ferjogames.coralsystemdeck.dialogs.SimpleDialog;
 import ferjogames.coralsystemdeck.utils.Colors;
 import ferjogames.coralsystemdeck.utils.GamePreferences;
-import ferjogames.coralsystemdeck.utils.GraphicUtils;
 import ferjogames.coralsystemdeck.utils.I18N;
 import ferjogames.coralsystemdeck.utils.SoundUtils;
 

@@ -1,12 +1,11 @@
 package ferjogames.coralsystemdeck.utils;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.utils.GdxRuntimeException;
-
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.utils.GdxRuntimeException;
 
 /**
  * Created by Fer on 27/08/2017.
@@ -54,7 +53,7 @@ public class DensityFileResolver {
         return iterator.next();
     }
 
-    private static boolean hasMoreElements(ListIterator iterator) {
+    private static boolean hasMoreElements(ListIterator<Density> iterator) {
         if (HIGHER_DENSITIES_FIRST)
             return iterator.hasPrevious();
         return iterator.hasNext();

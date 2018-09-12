@@ -8,7 +8,8 @@ import ferjogames.coralsystemdeck.utils.I18N;
  * Created by fer on 19/09/16.
  */
 public abstract class Operation implements Serializable {
-    protected int firstNumber, secondNumber, result;
+	private static final long serialVersionUID = 2578309568793157701L;
+	protected int firstNumber, secondNumber, result;
     protected Difficulty difficulty;
 
     public enum Difficulty {

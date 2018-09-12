@@ -7,7 +7,9 @@ import ferjogames.coralsystemdeck.utils.Utils;
  * Created by fer on 19/09/16.
  */
 public class Addition extends Operation {
-    @Override
+	private static final long serialVersionUID = -8129587896271101822L;
+
+	@Override
     public void generateNumbers() {
         switch (difficulty) {
             case EASY:

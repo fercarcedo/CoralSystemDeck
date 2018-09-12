@@ -1,28 +1,21 @@
 package ferjogames.coralsystemdeck.screens;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
-
 import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+
 import ferjogames.coralsystemdeck.CoralSystemDeck;
-import ferjogames.coralsystemdeck.actions.ChangeImage;
-import ferjogames.coralsystemdeck.actions.FlipIn;
-import ferjogames.coralsystemdeck.actions.FlipOut;
-import ferjogames.coralsystemdeck.actions.MoveUp;
 import ferjogames.coralsystemdeck.actors.BackArrow;
-import ferjogames.coralsystemdeck.actors.Circle;
 import ferjogames.coralsystemdeck.actors.CountdownCircle;
 import ferjogames.coralsystemdeck.actors.GameKeyboard;
 import ferjogames.coralsystemdeck.actors.GameRocket;
 import ferjogames.coralsystemdeck.actors.Image;
 import ferjogames.coralsystemdeck.actors.ToolbarTitle;
-import ferjogames.coralsystemdeck.logic.Addition;
 import ferjogames.coralsystemdeck.logic.MockOperation;
 import ferjogames.coralsystemdeck.logic.Operation;
 import ferjogames.coralsystemdeck.utils.Colors;
@@ -162,13 +155,6 @@ public class GameScreen extends AbstractScreen implements GameKeyboard.KeyboardL
                 rocket.moveUp();
             }
         }, 200);
-    }
-
-    private int calculateTotalCardSeconds() {
-        if (totalSeconds < CARD_SECONDS)
-            return totalSeconds;
-
-        return CARD_SECONDS;
     }
 
     private void launchResult() {

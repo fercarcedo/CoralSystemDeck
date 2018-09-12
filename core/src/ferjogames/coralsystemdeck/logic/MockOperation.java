@@ -5,7 +5,9 @@ package ferjogames.coralsystemdeck.logic;
  */
 
 public class MockOperation extends Addition {
-    public MockOperation() {
+	private static final long serialVersionUID = -3395272825577158503L;
+
+	public MockOperation() {
         setDifficulty(Difficulty.EASY);
     }
 

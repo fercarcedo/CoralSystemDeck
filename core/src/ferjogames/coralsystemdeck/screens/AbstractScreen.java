@@ -1,17 +1,12 @@
 package ferjogames.coralsystemdeck.screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 import ferjogames.coralsystemdeck.CoralSystemDeck;
 import ferjogames.coralsystemdeck.utils.GameStage;
-
-import static ferjogames.coralsystemdeck.CoralSystemDeck.WORLD_HEIGHT;
-import static ferjogames.coralsystemdeck.CoralSystemDeck.WORLD_WIDTH;
 
 /**
  * Created by Fer on 31/07/2017.

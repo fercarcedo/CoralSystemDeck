@@ -6,7 +6,8 @@ import ferjogames.coralsystemdeck.utils.I18N;
  * Created by fer on 19/09/16.
  */
 public class Division extends Operation {
-    private static final Operation PRODUCT = new Product();
+	private static final long serialVersionUID = -5359446359506889364L;
+	private static final Operation PRODUCT = new Product();
 
     @Override
     public void generateNumbers() {

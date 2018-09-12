@@ -1,28 +1,17 @@
 package ferjogames.coralsystemdeck.screens;
 
-import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
+import java.util.List;
+
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.ui.TextField;
-import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
-import com.badlogic.gdx.utils.Align;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 import ferjogames.coralsystemdeck.CoralSystemDeck;
-import ferjogames.coralsystemdeck.actors.BackArrow;
 import ferjogames.coralsystemdeck.actors.Image;
-import ferjogames.coralsystemdeck.actors.Text;
 import ferjogames.coralsystemdeck.logic.Operation;
 import ferjogames.coralsystemdeck.logic.Score;
 import ferjogames.coralsystemdeck.utils.Colors;

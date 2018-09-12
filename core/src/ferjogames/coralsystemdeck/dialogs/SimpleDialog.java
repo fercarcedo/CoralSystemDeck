@@ -10,7 +10,6 @@ import com.badlogic.gdx.utils.Align;
 import ferjogames.coralsystemdeck.CoralSystemDeck;
 import ferjogames.coralsystemdeck.utils.Colors;
 import ferjogames.coralsystemdeck.utils.GraphicUtils;
-import ferjogames.coralsystemdeck.utils.I18N;
 
 /**
  * Created by Fer on 29/08/2017.

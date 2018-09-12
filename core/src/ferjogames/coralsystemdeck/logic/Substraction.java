@@ -7,8 +7,9 @@ import ferjogames.coralsystemdeck.utils.Utils;
  * Created by fer on 19/09/16.
  */
 public class Substraction extends Operation {
+	private static final long serialVersionUID = 3562079052053825245L;
 
-    @Override
+	@Override
     public void generateNumbers() {
         switch (difficulty) {
             case EASY:

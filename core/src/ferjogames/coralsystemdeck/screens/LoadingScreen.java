@@ -14,8 +14,6 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGeneratorLoader;
 import com.badlogic.gdx.graphics.g2d.freetype.FreetypeFontLoader;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
-import java.util.Locale;
-
 import ferjogames.coralsystemdeck.CoralSystemDeck;
 import ferjogames.coralsystemdeck.actors.Text;
 import ferjogames.coralsystemdeck.utils.DensityFileResolver;

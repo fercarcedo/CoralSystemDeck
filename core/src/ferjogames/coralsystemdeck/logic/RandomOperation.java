@@ -8,8 +8,9 @@ import java.util.List;
  */
 
 public class RandomOperation extends Operation {
+	private static final long serialVersionUID = -5801450629864438258L;
 
-    private static final List<Operation> OPERATIONS =
+	private static final List<Operation> OPERATIONS =
             Arrays.asList(new Addition(), new Substraction(), new Product(), new Division());
 
     private Operation operation;

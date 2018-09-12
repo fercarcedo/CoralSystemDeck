@@ -34,7 +34,9 @@ public class Desktop implements Platform {
                 JPanel panel = new JPanel(new FlowLayout());
 
                 JPanel textPanel = new JPanel() {
-                    public boolean isOptimizedDrawingEnabled () {
+					private static final long serialVersionUID = -8057063944682282519L;
+
+					public boolean isOptimizedDrawingEnabled () {
                         return false;
                     };
                 };

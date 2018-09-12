@@ -1,14 +1,11 @@
 package ferjogames.coralsystemdeck.utils;
 
-import com.badlogic.gdx.Gdx;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
-import de.tomgrill.gdxdialogs.core.GDXDialogs;
-import de.tomgrill.gdxdialogs.core.GDXDialogsSystem;
-import de.tomgrill.gdxdialogs.core.dialogs.GDXButtonDialog;
+import com.badlogic.gdx.Gdx;
+
 import ferjogames.coralsystemdeck.CoralSystemDeck;
 import ferjogames.coralsystemdeck.logic.Operation;
 import ferjogames.coralsystemdeck.logic.Score;
@@ -19,7 +16,6 @@ import ferjogames.coralsystemdeck.logic.Score;
  */
 public final class Utils {
 
-    @SuppressWarnings("ResultOfMethodCallIgnored")
     public static boolean isNumber(String text) {
         try {
             Integer.parseInt(text);
