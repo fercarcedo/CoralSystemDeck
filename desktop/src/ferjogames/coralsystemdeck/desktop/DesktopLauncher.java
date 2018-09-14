@@ -1,5 +1,7 @@
 package ferjogames.coralsystemdeck.desktop;
 
+import java.util.ResourceBundle;
+
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
@@ -17,6 +19,7 @@ public class DesktopLauncher {
 		config.height = 720;
 		config.resizable = false;
 		config.useHDPI = true;
+		config.title = ResourceBundle.getBundle("i18n/strings").getString("app_name");
 		config.addIcon("images/ic_launcher_128_128.png", Files.FileType.Internal);
 		config.addIcon("images/ic_launcher_32_32.png", Files.FileType.Internal);
 		config.addIcon("images/ic_launcher_16_16.png", Files.FileType.Internal);
