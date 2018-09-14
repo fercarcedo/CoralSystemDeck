@@ -1,5 +1,7 @@
 package ferjogames.coralsystemdeck.actors;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -94,6 +96,56 @@ public class GameKeyboard extends Group {
         this.listener = listener;
     }
 
+    @Override
+    public void act(float delta) {
+    	super.act(delta);
+    	for (KeyboardButton button : numberButtons) {
+    		handleKeyboardPress(button);
+    	}
+    	handleKeyboardCancel(cancelButton);
+    	handleKeyboardConfirm(confirmButton);
+    }
+ 
+    private void handleKeyboardPress(KeyboardButton numberButton) {
+    	int[] keys;
+    	int number = Integer.parseInt(numberButton.getButtonText());
+    	switch (number) {
+    	case 0: keys = new int[] {Keys.NUM_0, Keys.NUMPAD_0}; break;
+    	case 1: keys = new int[] {Keys.NUM_1, Keys.NUMPAD_1}; break;
+    	case 2: keys = new int[] {Keys.NUM_2, Keys.NUMPAD_2}; break;
+    	case 3: keys = new int[] {Keys.NUM_3, Keys.NUMPAD_3}; break;
+    	case 4: keys = new int[] {Keys.NUM_4, Keys.NUMPAD_4}; break;
+    	case 5: keys = new int[] {Keys.NUM_5, Keys.NUMPAD_5}; break;
+    	case 6: keys = new int[] {Keys.NUM_6, Keys.NUMPAD_6}; break;
+    	case 7: keys = new int[] {Keys.NUM_7, Keys.NUMPAD_7}; break;
+    	case 8: keys = new int[] {Keys.NUM_8, Keys.NUMPAD_8}; break;
+    	default: keys = new int[] {Keys.NUM_9, Keys.NUMPAD_9}; break;
+    	}
+    	for (int key : keys) {
+    		if (Gdx.input.isKeyJustPressed(key)) {
+    			if (listener != null) {
+    				listener.numberClicked(number);
+    			}
+    		}
+    	}
+    }
+    
+    private void handleKeyboardCancel(ImageButton cancelButton) {
+    	if (Gdx.input.isKeyJustPressed(Keys.BACKSPACE)) {
+    		if (listener != null) {
+    			listener.cancelClicked();
+    		}
+    	}
+    }
+    
+    private void handleKeyboardConfirm(ImageButton confirmButton) {
+    	if (Gdx.input.isKeyJustPressed(Keys.ENTER)) {
+    		if (listener != null) {
+    			listener.confirmClicked();
+    		}
+    	}
+    }
+    
     @Override
     public void draw(Batch batch, float parentAlpha) {
         if (isVisible()) {
