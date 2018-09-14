@@ -61,7 +61,7 @@ public class MainScreen extends AbstractScreen {
         infoImage.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                new AboutDialog(game).show(stage);
+                new AboutDialog(game, stage).show(stage);
                 return true;
             }
         });
