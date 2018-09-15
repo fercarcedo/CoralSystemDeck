@@ -26,6 +26,8 @@ public class MainScreen extends AbstractScreen {
     private static final int BEAR_WIDTH = 100;
     private static final int BEAR_HEIGHT = 90;
 
+    private AboutDialog aboutDialog;
+
     public MainScreen(final CoralSystemDeck game) {
         super(game);
         Label.LabelStyle labelStyle = new Label.LabelStyle();
@@ -61,7 +63,10 @@ public class MainScreen extends AbstractScreen {
         infoImage.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                new AboutDialog(game, stage).show(stage);
+                if (aboutDialog == null) {
+                    aboutDialog = new AboutDialog(game);
+                }
+                aboutDialog.show(stage);
                 return true;
             }
         });
@@ -86,6 +91,10 @@ public class MainScreen extends AbstractScreen {
 
     @Override
     public void onBackPressed() {
-        Gdx.app.exit();
+        if (aboutDialog != null && aboutDialog.getStage() != null) {
+            aboutDialog.hide();
+        } else {
+            Gdx.app.exit();
+        }
     }
 }

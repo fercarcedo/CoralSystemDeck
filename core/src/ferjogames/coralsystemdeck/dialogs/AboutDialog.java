@@ -11,8 +11,6 @@ import com.badlogic.gdx.utils.Align;
 
 import ferjogames.coralsystemdeck.CoralSystemDeck;
 import ferjogames.coralsystemdeck.utils.Colors;
-import ferjogames.coralsystemdeck.utils.GameStage;
-import ferjogames.coralsystemdeck.utils.GameStage.OnBackPressedListener;
 import ferjogames.coralsystemdeck.utils.GraphicUtils;
 import ferjogames.coralsystemdeck.utils.I18N;
 
@@ -20,8 +18,8 @@ import ferjogames.coralsystemdeck.utils.I18N;
  * Created by Fer on 29/08/2017.
  */
 
-public class AboutDialog extends Dialog implements OnBackPressedListener {
-    public AboutDialog(CoralSystemDeck game, GameStage stage) {
+public class AboutDialog extends Dialog {
+    public AboutDialog(CoralSystemDeck game) {
         super("", game.getUISkin(), "dialog");
         Label.LabelStyle labelStyle = new Label.LabelStyle();
         labelStyle.font = game.getFont("font35");
@@ -68,7 +66,6 @@ public class AboutDialog extends Dialog implements OnBackPressedListener {
         invalidateHierarchy();
         invalidate();
         layout();
-        stage.setOnBackPressedListener(this);
     }
 
     @Override
@@ -85,9 +82,4 @@ public class AboutDialog extends Dialog implements OnBackPressedListener {
     public float getPrefHeight() {
         return 650;
     }
-
-	@Override
-	public void onBackPressed() {
-		hide();
-	}
 }
