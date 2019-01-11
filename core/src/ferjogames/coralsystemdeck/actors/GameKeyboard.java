@@ -1,6 +1,5 @@
 package ferjogames.coralsystemdeck.actors;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
@@ -82,6 +81,26 @@ public class GameKeyboard extends Group {
         addActor(cancelButton);
         addActor(confirmButton);
         setVisible(false);
+        addListener(new InputListener() {
+        	@Override
+        	public boolean keyDown(InputEvent event, int keycode) {
+        		switch (keycode) {
+        		case Keys.ENTER: handleKeyboardConfirm(confirmButton); return true;
+        		case Keys.BACKSPACE: handleKeyboardCancel(cancelButton); return true;
+        		case Keys.NUM_0: case Keys.NUMPAD_0: handleKeyboardPress(0); return true;
+        		case Keys.NUM_1: case Keys.NUMPAD_1: handleKeyboardPress(1); return true;
+        		case Keys.NUM_2: case Keys.NUMPAD_2: handleKeyboardPress(2); return true;
+        		case Keys.NUM_3: case Keys.NUMPAD_3: handleKeyboardPress(3); return true;
+        		case Keys.NUM_4: case Keys.NUMPAD_4: handleKeyboardPress(4); return true;
+        		case Keys.NUM_5: case Keys.NUMPAD_5: handleKeyboardPress(5); return true;
+        		case Keys.NUM_6: case Keys.NUMPAD_6: handleKeyboardPress(6); return true;
+        		case Keys.NUM_7: case Keys.NUMPAD_7: handleKeyboardPress(7); return true;
+        		case Keys.NUM_8: case Keys.NUMPAD_8: handleKeyboardPress(8); return true;
+        		case Keys.NUM_9: case Keys.NUMPAD_9: handleKeyboardPress(9); return true;
+        		}
+        		return super.keyDown(event, keycode);
+        	}
+        });
     }
 
     private void setKeyboardButtonListener(final KeyboardButton numberButton) {
@@ -99,54 +118,22 @@ public class GameKeyboard extends Group {
         this.listener = listener;
     }
 
-    @Override
-    public void act(float delta) {
-    	super.act(delta);
-    	for (KeyboardButton button : numberButtons) {
-    		handleKeyboardPress(button);
-    	}
-    	handleKeyboardCancel(cancelButton);
-    	handleKeyboardConfirm(confirmButton);
-    }
- 
-    private void handleKeyboardPress(KeyboardButton numberButton) {
-    	int[] keys;
-    	int number = Integer.parseInt(numberButton.getButtonText());
-    	switch (number) {
-    	case 0: keys = new int[] {Keys.NUM_0, Keys.NUMPAD_0}; break;
-    	case 1: keys = new int[] {Keys.NUM_1, Keys.NUMPAD_1}; break;
-    	case 2: keys = new int[] {Keys.NUM_2, Keys.NUMPAD_2}; break;
-    	case 3: keys = new int[] {Keys.NUM_3, Keys.NUMPAD_3}; break;
-    	case 4: keys = new int[] {Keys.NUM_4, Keys.NUMPAD_4}; break;
-    	case 5: keys = new int[] {Keys.NUM_5, Keys.NUMPAD_5}; break;
-    	case 6: keys = new int[] {Keys.NUM_6, Keys.NUMPAD_6}; break;
-    	case 7: keys = new int[] {Keys.NUM_7, Keys.NUMPAD_7}; break;
-    	case 8: keys = new int[] {Keys.NUM_8, Keys.NUMPAD_8}; break;
-    	default: keys = new int[] {Keys.NUM_9, Keys.NUMPAD_9}; break;
-    	}
-    	for (int key : keys) {
-    		if (Gdx.input.isKeyPressed(key)) {
-    			if (listener != null) {
-    				listener.numberClicked(number);
-    			}
-    		}
-    	}
+    private void handleKeyboardPress(int number) {
+    	if (listener != null) {
+			listener.numberClicked(number);
+		}
     }
     
     private void handleKeyboardCancel(ImageButton cancelButton) {
-    	if (Gdx.input.isKeyPressed(Keys.BACKSPACE)) {
-    		if (listener != null) {
-    			listener.cancelClicked();
-    		}
-    	}
+    	if (listener != null) {
+			listener.cancelClicked();
+		}
     }
     
     private void handleKeyboardConfirm(ImageButton confirmButton) {
-    	if (Gdx.input.isKeyPressed(Keys.ENTER)) {
-    		if (listener != null) {
-    			listener.confirmClicked();
-    		}
-    	}
+    	if (listener != null) {
+			listener.confirmClicked();
+		}
     }
     
     @Override

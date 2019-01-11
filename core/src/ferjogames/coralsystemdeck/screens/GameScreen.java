@@ -54,6 +54,7 @@ public class GameScreen extends AbstractScreen implements GameKeyboard.KeyboardL
         rocket.setKeyboard(keyboard);
         getStage().addActor(keyboard);
         getStage().addActor(rocket);
+        getStage().setKeyboardFocus(keyboard);
 
         if (CoralSystemDeck.SCREENSHOT_MODE) {
             rocket.setAnswer(String.valueOf(operation.getResult()));
