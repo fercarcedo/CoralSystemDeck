@@ -1,5 +1,8 @@
 package ferjogames.coralsystemdeck.screens;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
@@ -8,10 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.utils.Align;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.badlogic.gdx.scenes.scene2d.utils.Align;
 
 import ferjogames.coralsystemdeck.CoralSystemDeck;
 import ferjogames.coralsystemdeck.actors.BackArrow;
@@ -44,7 +44,7 @@ public class HighscoresScreen extends AbstractScreen {
         getStage().addActor(new ToolbarTitle(game, I18N.get("highscores")));
         getStage().addActor(new BackArrow(game, this));
         Texture corkboardTexture = game.getAssetManager().get(
-                DensityFileResolver.resolve("corkboard.jpg"));
+                DensityFileResolver.resolve("corkboard3.jpg"));
         getStage().addActor(new Image(new Sprite(corkboardTexture), 0, 0, 480, 650));
 
         Pixmap pixmap = GraphicUtils.getRoundedRectanglePixmap(Utils.toPixelsWidth(316),
@@ -82,7 +82,7 @@ public class HighscoresScreen extends AbstractScreen {
                 Utils.toPixelsWidth(80), Utils.toPixelsWidth(4), Colors.ORANGE);
 
         Table scrollTable = new Table();
-        scrollTable.align(Align.topLeft);
+        scrollTable.align(Align.top | Align.left);
         //Group group = new Group();
         List<Score> highScores;
         if (CoralSystemDeck.SCREENSHOT_MODE) {
@@ -93,7 +93,7 @@ public class HighscoresScreen extends AbstractScreen {
 
         for (int i = 0; i < highScores.size(); i++) {
             Score highScore = highScores.get(i);
-            scrollTable.add(new HighScoreItem(game, Color.valueOf(highScore.getColorHex()),
+            scrollTable.add(new HighScoreItem(game, Color.valueOf(highScore.getColorHex().substring(1)),
                     (i + 1) + "º: " + highScore.getStudentName(), highScore.getPoints()))
                     .width(190).height(150).space(30);
 
@@ -116,7 +116,7 @@ public class HighscoresScreen extends AbstractScreen {
     @Override
     public void render(float delta) {
         super.render(delta);
-        getStage().getBatch().setColor(1, 1, 1, 1);
+        getStage().getSpriteBatch().setColor(1, 1, 1, 1);
     }
 
     @Override

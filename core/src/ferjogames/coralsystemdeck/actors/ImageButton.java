@@ -3,11 +3,12 @@ package ferjogames.coralsystemdeck.actors;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
 import ferjogames.coralsystemdeck.CoralSystemDeck;
+import ferjogames.coralsystemdeck.utils.MathUtils;
 
 /**
  * Created by Fer on 17/08/2017.
@@ -19,7 +20,7 @@ public class ImageButton extends Actor {
     private Image image;
 
     public ImageButton(CoralSystemDeck game, String imageName, int x, int y, int width, int height, Color backgroundColor) {
-        Pixmap pixmap = new Pixmap(width, height, Pixmap.Format.RGBA8888);
+        Pixmap pixmap = new Pixmap(MathUtils.roundToNextPowerOfTwo(width), MathUtils.roundToNextPowerOfTwo(height), Pixmap.Format.RGBA8888);
         pixmap.setColor(backgroundColor);
         pixmap.fill();
         backgroundImage = new Image(new Sprite(new Texture(pixmap)), x, y, width, height);
@@ -28,7 +29,7 @@ public class ImageButton extends Actor {
     }
 
     @Override
-    public void draw(Batch batch, float parentAlpha) {
+    public void draw(SpriteBatch batch, float parentAlpha) {
         backgroundImage.draw(batch, parentAlpha);
         image.draw(batch, parentAlpha);
     }

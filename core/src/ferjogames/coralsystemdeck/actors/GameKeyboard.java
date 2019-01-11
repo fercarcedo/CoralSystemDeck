@@ -4,14 +4,15 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 
 import ferjogames.coralsystemdeck.CoralSystemDeck;
 import ferjogames.coralsystemdeck.utils.Colors;
+import ferjogames.coralsystemdeck.utils.MathUtils;
 
 /**
  * Created by Fer on 15/08/2017.
@@ -31,7 +32,9 @@ public class GameKeyboard extends Group {
     private KeyboardListener listener;
 
     public GameKeyboard(CoralSystemDeck game) {
-        Pixmap backgroundPixmap = new Pixmap((int) GameRocket.ROCKET_WIDTH, 246, Pixmap.Format.RGBA8888);
+        Pixmap backgroundPixmap = new Pixmap(MathUtils.roundToNextPowerOfTwo((int) GameRocket.ROCKET_WIDTH), 
+        		MathUtils.roundToNextPowerOfTwo(246), 
+        		Pixmap.Format.RGBA8888);
         backgroundPixmap.setColor(Colors.YELLOW);
         backgroundPixmap.fill();
         background = new Image(new Sprite(new Texture(backgroundPixmap)), 28, 5, GameRocket.ROCKET_WIDTH, 246);
@@ -122,7 +125,7 @@ public class GameKeyboard extends Group {
     	default: keys = new int[] {Keys.NUM_9, Keys.NUMPAD_9}; break;
     	}
     	for (int key : keys) {
-    		if (Gdx.input.isKeyJustPressed(key)) {
+    		if (Gdx.input.isKeyPressed(key)) {
     			if (listener != null) {
     				listener.numberClicked(number);
     			}
@@ -131,7 +134,7 @@ public class GameKeyboard extends Group {
     }
     
     private void handleKeyboardCancel(ImageButton cancelButton) {
-    	if (Gdx.input.isKeyJustPressed(Keys.BACKSPACE)) {
+    	if (Gdx.input.isKeyPressed(Keys.BACKSPACE)) {
     		if (listener != null) {
     			listener.cancelClicked();
     		}
@@ -139,7 +142,7 @@ public class GameKeyboard extends Group {
     }
     
     private void handleKeyboardConfirm(ImageButton confirmButton) {
-    	if (Gdx.input.isKeyJustPressed(Keys.ENTER)) {
+    	if (Gdx.input.isKeyPressed(Keys.ENTER)) {
     		if (listener != null) {
     			listener.confirmClicked();
     		}
@@ -147,7 +150,7 @@ public class GameKeyboard extends Group {
     }
     
     @Override
-    public void draw(Batch batch, float parentAlpha) {
+    public void draw(SpriteBatch batch, float parentAlpha) {
         if (isVisible()) {
             background.draw(batch, parentAlpha);
             for (KeyboardButton numberButton : numberButtons)

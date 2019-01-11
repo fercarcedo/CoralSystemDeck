@@ -7,11 +7,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.VerticalGroup;
-import com.badlogic.gdx.utils.Align;
+import com.badlogic.gdx.scenes.scene2d.utils.Align;
 
 import ferjogames.coralsystemdeck.CoralSystemDeck;
 import ferjogames.coralsystemdeck.utils.Colors;
 import ferjogames.coralsystemdeck.utils.GraphicUtils;
+import ferjogames.coralsystemdeck.utils.MathUtils;
 import ferjogames.coralsystemdeck.utils.Utils;
 
 /**
@@ -28,7 +29,7 @@ public class HighScoreItem extends Stack {
         pointsLabel = createLabel(game, String.valueOf(points));
         VerticalGroup verticalGroup = new VerticalGroup();
         verticalGroup.addActor(new Image(game.getAtlas().findRegion("pushpin")));
-        verticalGroup.space(20);
+        verticalGroup.setSpacing(15);
         verticalGroup.addActor(namePositionLabel);
         verticalGroup.addActor(pointsLabel);
         add(verticalGroup);
@@ -36,7 +37,9 @@ public class HighScoreItem extends Stack {
 
     private static Pixmap generateBackground(Color color) {
         return GraphicUtils.getRoundedRectanglePixmap(
-                Utils.toPixelsWidth(190), Utils.toPixelsHeight(150), Utils.toPixelsWidth(4), color
+                MathUtils.roundToNextPowerOfTwo(Utils.toPixelsWidth(190)), 
+                MathUtils.roundToNextPowerOfTwo(Utils.toPixelsHeight(150)), 
+                Utils.toPixelsWidth(4), color
         );
     }
 

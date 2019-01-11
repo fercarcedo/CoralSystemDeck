@@ -19,6 +19,7 @@ import ferjogames.coralsystemdeck.actors.ToolbarTitle;
 import ferjogames.coralsystemdeck.logic.MockOperation;
 import ferjogames.coralsystemdeck.logic.Operation;
 import ferjogames.coralsystemdeck.utils.Colors;
+import ferjogames.coralsystemdeck.utils.MathUtils;
 
 /**
  * Created by Fer on 09/08/2017.
@@ -57,7 +58,7 @@ public class GameScreen extends AbstractScreen implements GameKeyboard.KeyboardL
         if (CoralSystemDeck.SCREENSHOT_MODE) {
             rocket.setAnswer(String.valueOf(operation.getResult()));
         }
-        Pixmap pixmap = new Pixmap(480, 75, Pixmap.Format.RGBA8888);
+        Pixmap pixmap = new Pixmap(MathUtils.roundToNextPowerOfTwo(480), MathUtils.roundToNextPowerOfTwo(75), Pixmap.Format.RGBA8888);
         pixmap.setColor(Colors.BLUE);
         pixmap.fill();
         getStage().addActor(new Image(new Sprite(new Texture(pixmap)), 0, 645, 480, 76));

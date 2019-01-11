@@ -2,7 +2,7 @@ package ferjogames.coralsystemdeck.actors;
 
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
 import ferjogames.coralsystemdeck.CoralSystemDeck;
@@ -37,7 +37,7 @@ public class OperationButton extends Actor {
     }
 
     @Override
-    public void draw(Batch batch, float parentAlpha) {
+    public void draw(SpriteBatch batch, float parentAlpha) {
         borderCircle.draw(batch, parentAlpha);
         circle.draw(batch, parentAlpha);
         textActor.draw(batch, parentAlpha);

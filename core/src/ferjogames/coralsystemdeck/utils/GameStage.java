@@ -4,10 +4,6 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.viewport.StretchViewport;
-
-import java.util.ArrayDeque;
-import java.util.Deque;
 
 import ferjogames.coralsystemdeck.CoralSystemDeck;
 
@@ -41,7 +37,7 @@ public class GameStage extends Stage {
     }
 
     public GameStage(boolean scroll) {
-        super(new StretchViewport(CoralSystemDeck.WORLD_WIDTH, CoralSystemDeck.WORLD_HEIGHT));
+    	super(CoralSystemDeck.WORLD_WIDTH, CoralSystemDeck.WORLD_HEIGHT);
         this.scroll = scroll;
     }
 

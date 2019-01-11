@@ -18,6 +18,7 @@ import ferjogames.coralsystemdeck.utils.Colors;
 import ferjogames.coralsystemdeck.utils.GamePreferences;
 import ferjogames.coralsystemdeck.utils.GraphicUtils;
 import ferjogames.coralsystemdeck.utils.I18N;
+import ferjogames.coralsystemdeck.utils.MathUtils;
 import ferjogames.coralsystemdeck.utils.Utils;
 
 /**
@@ -71,8 +72,8 @@ public class ResultScreen extends AbstractScreen {
     }
 
     private void createResultsBlackboard() {
-        Pixmap pixmap = GraphicUtils.getBlackboardPixmap(Utils.toPixelsWidth(400),
-                Utils.toPixelsHeight(320),
+        Pixmap pixmap = GraphicUtils.getBlackboardPixmap(MathUtils.roundToNextPowerOfTwo(Utils.toPixelsWidth(400)),
+                MathUtils.roundToNextPowerOfTwo(Utils.toPixelsHeight(320)),
                 Utils.toPixelsWidth(7));
 
         Image image = new Image(new Sprite(new Texture(pixmap)), 40, 135, 400, 320);

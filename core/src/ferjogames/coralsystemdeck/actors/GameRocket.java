@@ -1,11 +1,11 @@
 package ferjogames.coralsystemdeck.actors;
 
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.utils.Align;
+import com.badlogic.gdx.scenes.scene2d.utils.Align;
 
 import ferjogames.coralsystemdeck.CoralSystemDeck;
 import ferjogames.coralsystemdeck.actions.ChangeImage;
@@ -67,7 +67,7 @@ public class GameRocket extends Actor {
     }
 
     @Override
-    public void draw(Batch batch, float parentAlpha) {
+    public void draw(SpriteBatch batch, float parentAlpha) {
         rocketImage.draw(batch, parentAlpha);
         operationText.draw(batch, parentAlpha);
 
@@ -78,6 +78,23 @@ public class GameRocket extends Actor {
     }
 
     @Override
+    public void setX(float x) {
+    	super.setX(x);
+    	positionChanged();
+    }
+    
+    @Override
+    public void setY(float y) {
+    	super.setY(y);
+    	positionChanged();
+    }
+    
+    @Override
+    public void setPosition(float x, float y) {
+    	super.setPosition(x, y);
+    	positionChanged();
+    }
+   
     protected void positionChanged() {
         rocketImage.setX(getX());
         rocketImage.setY(getY());

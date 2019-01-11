@@ -1,6 +1,8 @@
 package ferjogames.coralsystemdeck.actors;
 
-import com.badlogic.gdx.scenes.scene2d.ui.TextField;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
+import ferjogames.coralsystemdeck.utils.TextField;
 
 /**
  * Created by Fer on 02/09/2017.
@@ -8,7 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 
 public class PlaceholderTextField extends TextField {
 
-    private String placeholder;
+    private String placeholder = "";
     private boolean placeholderShown;
 
     public PlaceholderTextField(String text, TextFieldStyle style) {
@@ -30,6 +32,7 @@ public class PlaceholderTextField extends TextField {
     @Override
     public void setText(String str) {
         if (textEmpty(str)) {
+        	String placeholder = this.placeholder != null ? this.placeholder : "";
             super.setText(placeholder);
             placeholderShown = true;
         } else {
@@ -40,7 +43,12 @@ public class PlaceholderTextField extends TextField {
 
     @Override
     public String getText() {
-        return placeholderShown ? "" : text;
+        return placeholderShown ? "" : super.getText();
+    }
+    
+    @Override
+    public void draw(SpriteBatch batch, float parentAlpha) {
+    	super.draw(batch, parentAlpha);
     }
 
     private boolean textEmpty(String text) {

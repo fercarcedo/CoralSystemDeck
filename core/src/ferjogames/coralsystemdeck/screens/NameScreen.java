@@ -9,9 +9,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
-import com.badlogic.gdx.utils.Align;
 
 import ferjogames.coralsystemdeck.CoralSystemDeck;
 import ferjogames.coralsystemdeck.actors.BackArrow;
@@ -22,7 +20,9 @@ import ferjogames.coralsystemdeck.dialogs.SimpleDialog;
 import ferjogames.coralsystemdeck.utils.GamePreferences;
 import ferjogames.coralsystemdeck.utils.GraphicUtils;
 import ferjogames.coralsystemdeck.utils.I18N;
+import ferjogames.coralsystemdeck.utils.MathUtils;
 import ferjogames.coralsystemdeck.utils.SoundUtils;
+import ferjogames.coralsystemdeck.utils.TextField;
 import ferjogames.coralsystemdeck.utils.Utils;
 
 /**
@@ -40,15 +40,15 @@ public class NameScreen extends AbstractScreen {
         getStage().addActor(new BackArrow(game, this));
 
         TextField.TextFieldStyle style = new TextField.TextFieldStyle();
-        Pixmap pixmap = GraphicUtils.getBlackboardPixmap(Utils.toPixelsWidth(316),
-                                            Utils.toPixelsHeight(165),
-                                            Utils.toPixelsWidth(7));
+        Pixmap pixmap = GraphicUtils.getBlackboardPixmap(MathUtils.roundToNextPowerOfTwo(Utils.toPixelsWidth(316)),
+                                            MathUtils.roundToNextPowerOfTwo(Utils.toPixelsHeight(165)),
+                                            MathUtils.roundToNextPowerOfTwo(Utils.toPixelsWidth(7)));
 
         style.background = new SpriteDrawable(new Sprite(new Texture(pixmap)));
         pixmap.dispose();
         style.fontColor = Color.WHITE;
         style.font = game.getAssetManager().get("font40.ttf");
-        style.font.getData().setScale(CoralSystemDeck.WORLD_WIDTH / Gdx.graphics.getWidth());
+        style.font.setScale(CoralSystemDeck.WORLD_WIDTH / Gdx.graphics.getWidth());
 
         String lastPlayerName;
 
@@ -61,9 +61,9 @@ public class NameScreen extends AbstractScreen {
         final String namePlaceholder = I18N.get("name");
         final PlaceholderTextField textField = new PlaceholderTextField(lastPlayerName, style);
         textField.setMaxLength(9);
-        textField.setBounds(85, 95, 316, 165);
-        textField.setAlignment(Align.center);
+        textField.setBounds(85, 95, 316, 165);     
         textField.setPlaceholder(namePlaceholder);
+        textField.setCentered(true);
         textField.setOnscreenKeyboard(new TextField.OnscreenKeyboard() {
             @Override
             public void show(boolean visible) {
@@ -85,10 +85,11 @@ public class NameScreen extends AbstractScreen {
 
         TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
         textButtonStyle.font = game.getAssetManager().get("font30.ttf");
-        textButtonStyle.font.getData().setScale(CoralSystemDeck.WORLD_WIDTH / Gdx.graphics.getWidth());
+        textButtonStyle.font.setScale(CoralSystemDeck.WORLD_WIDTH / Gdx.graphics.getWidth());
 
         textButtonStyle.fontColor = Color.WHITE;
-        pixmap = new Pixmap(Utils.toPixelsWidth(240), Utils.toPixelsHeight(70), Pixmap.Format.RGBA8888);
+        pixmap = new Pixmap(MathUtils.roundToNextPowerOfTwo(Utils.toPixelsWidth(240)), 
+        		MathUtils.roundToNextPowerOfTwo(Utils.toPixelsHeight(70)), Pixmap.Format.RGBA8888);
         pixmap.setColor(Color.RED);
         pixmap.fill();
         textButtonStyle.up = new SpriteDrawable(new Sprite(new Texture(pixmap)));

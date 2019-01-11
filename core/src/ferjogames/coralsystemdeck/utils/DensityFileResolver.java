@@ -41,7 +41,6 @@ public class DensityFileResolver {
         }
 
         if (lowerDensity != null) {
-            System.out.println(lowerDensity.bucketName);
             return buildAssetPath(lowerDensity, file);
         } else
             throw new GdxRuntimeException("File not found: " + file);

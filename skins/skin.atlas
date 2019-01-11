@@ -1,6 +1,5 @@
 
 skin.png
-size: 32,128
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none

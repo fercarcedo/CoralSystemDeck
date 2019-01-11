@@ -2,8 +2,8 @@ package ferjogames.coralsystemdeck.actors;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
 import ferjogames.coralsystemdeck.CoralSystemDeck;
@@ -43,11 +43,11 @@ public class Text extends Actor {
 
     public void setFont(BitmapFont font) {
         this.font = font;
-        this.font.getData().setScale(CoralSystemDeck.WORLD_WIDTH / Gdx.graphics.getWidth());
+        this.font.setScale(CoralSystemDeck.WORLD_WIDTH / Gdx.graphics.getWidth());
     }
 
     @Override
-    public void draw(Batch batch, float parentAlpha) {
+    public void draw(SpriteBatch batch, float parentAlpha) {
         this.font.setColor(getColor());
         font.draw(batch, text, getX(), getY());
     }

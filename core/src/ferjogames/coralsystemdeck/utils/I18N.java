@@ -1,7 +1,9 @@
 package ferjogames.coralsystemdeck.utils;
 
+import java.text.MessageFormat;
+import java.util.ResourceBundle;
+
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.utils.I18NBundle;
 
 /**
  * Created by Fer on 25/08/2017.
@@ -10,18 +12,19 @@ import com.badlogic.gdx.utils.I18NBundle;
 public class I18N {
 
 	private static final String BUNDLE_PATH = "i18n/strings";
-    private static I18NBundle bundle = createBundle();
+    private static ResourceBundle bundle = createBundle();
 
     public static String get(String key) {
-        return bundle.get(key);
+        return bundle.getString(key);
     }
 
     public static String get(String key, Object... args) {
-        return bundle.format(key, args);
+        String pattern = get(key);
+        return MessageFormat.format(pattern, args);
     }
 
-    private static I18NBundle createBundle() {
-        return I18NBundle.createBundle(Gdx.files.internal(BUNDLE_PATH));
+    private static ResourceBundle createBundle() {
+    	return ResourceBundle.getBundle(Gdx.files.internal(BUNDLE_PATH).file().getPath());
     }
 
     public static void recreateBundle() {

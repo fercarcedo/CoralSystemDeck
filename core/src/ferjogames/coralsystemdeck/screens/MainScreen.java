@@ -5,12 +5,11 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.utils.Align;
+import com.badlogic.gdx.scenes.scene2d.utils.Align;
 
 import ferjogames.coralsystemdeck.CoralSystemDeck;
 import ferjogames.coralsystemdeck.actors.Image;
 import ferjogames.coralsystemdeck.dialogs.AboutDialog;
-import ferjogames.coralsystemdeck.utils.Colors;
 import ferjogames.coralsystemdeck.utils.GamePreferences;
 import ferjogames.coralsystemdeck.utils.I18N;
 import ferjogames.coralsystemdeck.utils.SoundUtils;
@@ -36,7 +35,7 @@ public class MainScreen extends AbstractScreen {
         titleLabel.setY(650);
         titleLabel.setWidth(CoralSystemDeck.WORLD_WIDTH);
         titleLabel.setAlignment(Align.center);
-        titleLabel.setColor(Colors.YELLOW);
+        titleLabel.setColor(1, 1, 0, 1);
         getStage().addActor(titleLabel);
 
         showInfoImage();

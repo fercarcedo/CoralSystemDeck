@@ -17,7 +17,7 @@ public class CoralSystemDeck extends Game {
     public static final boolean SCREENSHOT_MODE = false;
     public static final float WORLD_WIDTH = 480;
     public static final float WORLD_HEIGHT = 720;
-    public static final Color BACKGROUND_COLOR = Color.valueOf("#2196F3");
+    public static final Color BACKGROUND_COLOR = new Color(0.13f, 0.59f, 0.95f, 1f);
 
     private AssetManager assetManager;
     private String atlasPath;
@@ -43,7 +43,7 @@ public class CoralSystemDeck extends Game {
 
     public BitmapFont getFont(String fontName) {
         BitmapFont font = assetManager.get(fontName + ".ttf");
-        font.getData().setScale(CoralSystemDeck.WORLD_WIDTH / Gdx.graphics.getWidth());
+        font.setScale(CoralSystemDeck.WORLD_WIDTH / Gdx.graphics.getWidth());
         return font;
     }
 

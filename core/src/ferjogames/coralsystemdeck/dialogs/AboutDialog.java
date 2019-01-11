@@ -7,7 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.VerticalGroup;
-import com.badlogic.gdx.utils.Align;
+import com.badlogic.gdx.scenes.scene2d.utils.Align;
 
 import ferjogames.coralsystemdeck.CoralSystemDeck;
 import ferjogames.coralsystemdeck.utils.Colors;
@@ -27,32 +27,32 @@ public class AboutDialog extends Dialog {
         label.setWrap(true);
         label.setColor(Colors.BLACK);
         label.setFontScale((CoralSystemDeck.WORLD_WIDTH / Gdx.graphics.getWidth() * 0.8f));
-        label.setAlignment(Align.topLeft);
+        label.setAlignment(Align.top | Align.left);
 
         VerticalGroup verticalGroup = new VerticalGroup();
-        verticalGroup.align(Align.top | Align.center);
+        verticalGroup.setAlignment(Align.top | Align.center);
         verticalGroup.addActor(new Image(game.getAtlas().findRegion("ic_launcher")));
         verticalGroup.addActor(GraphicUtils.createLabel(I18N.get("app_name"), game, "Roboto-Regular20Bold", Colors.BLACK));
         verticalGroup.addActor(GraphicUtils.createLabel(I18N.get("version"), game, "Roboto-Regular20Bold", Colors.BLACK));
-        verticalGroup.space(15);
+        verticalGroup.setSpacing(10);
         Label ferjogamesLabel = GraphicUtils.createEmailLabel(I18N.get("about_email"), game, "Roboto-Regular20");
         verticalGroup.addActor(ferjogamesLabel);
-        verticalGroup.space(15);
+        verticalGroup.setSpacing(10);
         verticalGroup.addActor(GraphicUtils.createLabel(I18N.get("about_based_on")+'\n'+I18N.get("juan_pedro")+'\n'+I18N.get("teacher_and_child_psychologist"), game, "Roboto-Regular20", Colors.BLACK));
         Label barajascalculoLabel = GraphicUtils.createWebsiteLabel(I18N.get("about_barajas_web"), game, "Roboto-Regular20");
         verticalGroup.addActor(barajascalculoLabel);
-        verticalGroup.space(15);
+        verticalGroup.setSpacing(10);
         verticalGroup.addActor(GraphicUtils.createLabel(I18N.get("acknowledgements"), game, "Roboto-Regular20Bold", Colors.BLACK));
-        verticalGroup.space(15);
+        verticalGroup.setSpacing(10);
         verticalGroup.addActor(GraphicUtils.createLabel(I18N.get("about_illustrations_sara"), game, "Roboto-Regular20", Colors.BLACK));
         Label smayolagoLabel = GraphicUtils.createEmailLabel(I18N.get("about_illustrations_email"), game, "Roboto-Regular20");
         verticalGroup.addActor(smayolagoLabel);
-        verticalGroup.space(15);
+        verticalGroup.setSpacing(10);
         verticalGroup.addActor(GraphicUtils.createLabel(I18N.get("about_sounds_martin"), game, "Roboto-Regular20", Colors.BLACK));
-        verticalGroup.space(15);
+        verticalGroup.setSpacing(10);
         verticalGroup.addActor(GraphicUtils.createLabel(I18N.get("thanks_sergio"), game, "Roboto-Regular20", Colors.BLACK));
 
-        getContentTable().add(verticalGroup).padTop(20).fill().expand();
+        getContentTable().add(verticalGroup).padTop(15).fill().expand();
 
         getButtonTable().padTop(10).padBottom(0);
 
@@ -70,7 +70,6 @@ public class AboutDialog extends Dialog {
 
     @Override
     protected void result(Object object) {
-        System.out.println("Elegido: " + object);
     }
 
     @Override

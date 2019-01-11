@@ -1,6 +1,6 @@
 package ferjogames.coralsystemdeck.actors;
 
-import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
 import ferjogames.coralsystemdeck.CoralSystemDeck;
@@ -22,7 +22,7 @@ public class KeyboardButton extends Actor {
     }
 
     @Override
-    public void draw(Batch batch, float parentAlpha) {
+    public void draw(SpriteBatch batch, float parentAlpha) {
         text.draw(batch, parentAlpha);
     }
 

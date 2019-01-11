@@ -5,11 +5,12 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.utils.Align;
+import com.badlogic.gdx.scenes.scene2d.utils.Align;
 
 import ferjogames.coralsystemdeck.CoralSystemDeck;
 import ferjogames.coralsystemdeck.utils.Colors;
 import ferjogames.coralsystemdeck.utils.GraphicUtils;
+import ferjogames.coralsystemdeck.utils.MathUtils;
 import ferjogames.coralsystemdeck.utils.Utils;
 
 /**
@@ -23,7 +24,9 @@ public class HighScoreTitle extends Group {
 
     public HighScoreTitle(CoralSystemDeck game, String title, float x, float y, float width, float height) {
         Pixmap backgroundPixmap = GraphicUtils.getRoundedRectanglePixmap(
-                Utils.toPixelsWidth((int) width), Utils.toPixelsHeight((int) height), Utils.toPixelsWidth(4), Colors.YELLOW
+                MathUtils.roundToNextPowerOfTwo(Utils.toPixelsWidth((int) width)), 
+                MathUtils.roundToNextPowerOfTwo(Utils.toPixelsHeight((int) height)), 
+                Utils.toPixelsWidth(4), Colors.YELLOW
         );
         background = new Image(new Sprite(new Texture(backgroundPixmap)), x, y, width, height);
         backgroundPixmap.dispose();

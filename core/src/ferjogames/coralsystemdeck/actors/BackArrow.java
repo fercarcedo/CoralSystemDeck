@@ -1,6 +1,6 @@
 package ferjogames.coralsystemdeck.actors;
 
-import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -36,7 +36,7 @@ public class BackArrow extends Actor {
     }
 
     @Override
-    public void draw(Batch batch, float parentAlpha) {
+    public void draw(SpriteBatch batch, float parentAlpha) {
         batch.draw(game.getAtlas().findRegion("ic_back"), X_POS, Y_POS, WIDTH, HEIGHT);
     }
 }
