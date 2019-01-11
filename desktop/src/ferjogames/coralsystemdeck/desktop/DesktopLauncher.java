@@ -14,6 +14,7 @@ public class DesktopLauncher {
 	private static final boolean PACK_TEXTURES = false;
 	
 	public static void main (String[] arg) {
+		System.setProperty("org.lwjgl.opengl.Display.allowSoftwareOpenGL", "true");
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.width = 480;
 		config.height = 720;
