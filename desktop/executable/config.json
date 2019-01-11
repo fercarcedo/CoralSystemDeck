@@ -1,0 +1,9 @@
+{
+  "classPath": [
+    "desktop-1.0.jar"
+  ],
+  "mainClass": "ferjogames.coralsystemdeck.desktop.DesktopLauncher",
+  "vmArgs": [
+    "-Xmx1G"
+  ]
+}

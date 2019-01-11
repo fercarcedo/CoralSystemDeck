@@ -24,7 +24,7 @@ public class I18N {
     }
 
     private static ResourceBundle createBundle() {
-    	return ResourceBundle.getBundle(Gdx.files.internal(BUNDLE_PATH).file().getPath());
+    	return ResourceBundle.getBundle(BUNDLE_PATH);
     }
 
     public static void recreateBundle() {

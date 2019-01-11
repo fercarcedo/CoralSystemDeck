@@ -18,11 +18,11 @@
     selection: { r: 0.3, g: 0, b: 0, a: 1 },
     semiTransparent: { r: 0, g: 0, b: 0, a: 0.3 },
     
-    font: white
-    fontOver: white
-    fontDown: gray
-    fontChecked: white
-    fontCheckedOver: white
+    font: white,
+    fontDown: gray,
+    fontOver: white,
+    fontChecked: white,
+    fontCheckedOver: white,
     fontDisabled: gray
   },
   com.badlogic.gdx.scenes.scene2d.ui.Skin$TintedDrawable: {
@@ -92,8 +92,8 @@
     toggle: { up: buttonUp, over: buttonOver, down: buttonDown, checked: buttonChecked, checkedOver: buttonCheckedOver, disabled: buttonDisabled }
   },
   com.badlogic.gdx.scenes.scene2d.ui.CheckBox$CheckBoxStyle: {
-    default: { checkboxOn: checkBoxOn, checkboxOff: checkBoxOff, checkboxOver: checkBoxOver, checkboxOnDisabled: checkBoxOnDisabled,
-      checkboxOffDisabled: checkBoxOffDisabled, font: default, fontColor: font, overFontColor: fontOver, downFontColor: fontDown,
+    default: { checkboxOn: checkBoxOn, checkboxOff: checkBoxOff, checkboxOver: checkBoxOver,
+      font: default, fontColor: font, overFontColor: fontOver, downFontColor: fontDown,
       checkedFontColor: fontChecked, checkedOverFontColor: fontCheckedOver, disabledFontColor: fontDisabled, pressedOffsetY: -1, pressedOffsetX: 1 }
   },
   com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle: {
@@ -108,31 +108,18 @@
     white: { font: default, fontColor: white }
   },
   com.badlogic.gdx.scenes.scene2d.ui.List$ListStyle: {
-    default: { fontColorUnselected: font, selection: selection, fontColorSelected: fontDown, font: default },
-    background: { background: list, fontColorUnselected: font, selection: selection, fontColorSelected: fontDown, font: default }
-  },
-  com.badlogic.gdx.scenes.scene2d.ui.ProgressBar$ProgressBarStyle: {
-    default-horizontal: { background: progressHorizontal, knobBefore: progressHorizontalKnob, 
-      disabledBackground: progressHorizontalDisabled, disabledKnobBefore: progressHorizontalKnobDisabled },
-    default-vertical: { background: progressVertical, knobBefore: progressVerticalKnob, 
-      disabledBackground: progressVerticalDisabled, disabledKnobBefore: progressVerticalKnobDisabled }
+    default: { fontColorUnselected: font, selection: selection, fontColorSelected: fontDown, font: default }
   },
   com.badlogic.gdx.scenes.scene2d.ui.ScrollPane$ScrollPaneStyle: {
     default: { hScrollKnob: scrollKnob, vScrollKnob: scrollKnobVertical, hScroll: scrollHorizontal, vScroll: scrollVertical },
     clean: { hScrollKnob: scrollKnob, vScrollKnob: scrollKnobVertical },
     background: { background: scrollPane, hScrollKnob: scrollKnob, vScrollKnob: scrollKnobVertical, hScroll: scrollHorizontal, vScroll: scrollVertical }
   },
-  com.badlogic.gdx.scenes.scene2d.ui.SelectBox$SelectBoxStyle: {
-    default: { font: default, fontColor: font, disabledFontColor: fontDisabled, background: selectBox, backgroundOver: selectOver,
-      backgroundOpen: selectDown, backgroundDisabled: selectDisabled, scrollStyle: default, listStyle: 
-      	{ background: selectList, fontColorUnselected: font, selection: selection, fontColorSelected: fontDown, font: default }
-      }
-  },
   com.badlogic.gdx.scenes.scene2d.ui.Slider$SliderStyle: {
-    default-horizontal: { background: sliderHorizontal, knob: sliderKnob, knobOver: sliderKnobOver, knobDown: sliderKnobDown,
+    default-horizontal: { background: sliderHorizontal, knob: sliderKnob,  
       disabledKnob: sliderKnobDisabled },
-    default-vertical: { background: sliderVertical, knob: sliderVerticalKnob, knobOver: sliderVerticalKnobOver,
-      knobDown: sliderVerticalKnobDown,	disabledKnob: sliderVerticalKnobDisabled }
+    default-vertical: { background: sliderVertical, knob: sliderVerticalKnob, 
+     disabledKnob: sliderVerticalKnobDisabled }
   },
   com.badlogic.gdx.scenes.scene2d.ui.SplitPane$SplitPaneStyle: {
     default-vertical: { handle: splitPane },
@@ -153,9 +140,6 @@
     default: { font: default, messageFont: default, fontColor: font, focusedFontColor: fontOver, disabledFontColor: fontDisabled,
       messageFontColor: fontDown, background: textField, focusedBackground: textFieldDown, disabledBackground: textFieldDisabled,
       cursor: textFieldCursor, selection: selection }
-  },
-  com.badlogic.gdx.scenes.scene2d.ui.TextTooltip$TextTooltipStyle: {
-    default: { label: default, background: tooltip }
   },
   com.badlogic.gdx.scenes.scene2d.ui.Touchpad$TouchpadStyle: {
     default: { background: touchpad, knob: touchpadKnob }
