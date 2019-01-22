@@ -1,12 +1,10 @@
 package ferjogames.coralsystemdeck.actors;
 
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
 import ferjogames.coralsystemdeck.CoralSystemDeck;
-import ferjogames.coralsystemdeck.utils.Colors;
 
 /**
  * Created by Fer on 31/07/2017.
@@ -15,7 +13,6 @@ import ferjogames.coralsystemdeck.utils.Colors;
 public class Image extends Actor {
 
     private Sprite sprite;
-    private Color color = Colors.WHITE;
 
     public Image(Sprite sprite, float x, float y) {
         this.sprite = sprite;
@@ -39,20 +36,13 @@ public class Image extends Actor {
         setHeight(height);
     }
 
-    public void setColor(Color color) {
-        this.color = color;
-    }
-
     @Override
     public void draw(SpriteBatch batch, float parentAlpha) {
-        Color batchColor = batch.getColor();
-        batch.setColor(color);
         if (getWidth() > 0 && getHeight() > 0) {
             batch.draw(sprite, getX(), getY(), getWidth(), getHeight());
         } else {
             batch.draw(sprite, getX(), getY());
         }
-        batch.setColor(batchColor);
     }
 
     public void setSprite(Sprite sprite) {
