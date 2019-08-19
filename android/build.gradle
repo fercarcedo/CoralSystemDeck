@@ -1,5 +1,5 @@
 android {
-    compileSdkVersion 27
+    compileSdkVersion 29
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
@@ -24,9 +24,9 @@ android {
     defaultConfig {
         applicationId "ferjogames.coralsystemdeck"
         minSdkVersion 14
-        targetSdkVersion 27
-        versionCode 32
-        versionName "1.2.7"
+        targetSdkVersion 29
+        versionCode 35
+        versionName "1.4"
     }
     buildTypes {
         release {
@@ -41,7 +41,7 @@ android {
         }
     }
     dependencies {
-        implementation 'com.android.support:appcompat-v7:27.0.2'
+        implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
     }
 }
 
@@ -56,7 +56,7 @@ task copyAndroidNatives() {
     file("libs/x86_64/").mkdirs();
     file("libs/x86/").mkdirs();
 
-    configurations.natives.files.each { jar ->
+    configurations.getByName("natives").copy().files.each { jar ->
         def outputDir = null
         if(jar.name.endsWith("natives-arm64-v8a.jar")) outputDir = file("libs/arm64-v8a")
         if(jar.name.endsWith("natives-armeabi-v7a.jar")) outputDir = file("libs/armeabi-v7a")        

@@ -1,15 +1,19 @@
 <resources>
 
-    <style name="GdxTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-		<item name="android:windowBackground">@android:color/transparent</item>
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowAnimationStyle">@android:style/Animation</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowFullscreen">false</item>
-        <item name="colorPrimaryDark">#1976D2</item>
+        <item name="colorPrimaryDark">?attr/colorPrimary</item>
         <item name="colorPrimary">#2196F3</item>
         <item name="colorAccent">#f44336</item>
+    </style>
+
+
+    <style name="GdxTheme" parent="BaseTheme">
     </style>
 
 </resources>
