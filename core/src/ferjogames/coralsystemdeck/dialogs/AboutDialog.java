@@ -2,11 +2,13 @@ package ferjogames.coralsystemdeck.dialogs;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.VerticalGroup;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 
 import ferjogames.coralsystemdeck.CoralSystemDeck;
@@ -51,6 +53,16 @@ public class AboutDialog extends Dialog {
         verticalGroup.addActor(GraphicUtils.createLabel(I18N.get("about_sounds_martin"), game, "Roboto-Regular20", Colors.BLACK));
         verticalGroup.space(15);
         verticalGroup.addActor(GraphicUtils.createLabel(I18N.get("thanks_sergio"), game, "Roboto-Regular20", Colors.BLACK));
+        Label privacyPolicyLabel = GraphicUtils.createLabel(I18N.get("privacy_policy"), game, "Roboto-Regular20", Colors.BLUE);
+        privacyPolicyLabel.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                Gdx.net.openURI(I18N.get("privacy_policy_url"));
+                event.handle();
+            }
+        });
+        verticalGroup.addActor(privacyPolicyLabel);
 
         getContentTable().add(verticalGroup).padTop(20).fill().expand();
 
@@ -80,6 +92,6 @@ public class AboutDialog extends Dialog {
 
     @Override
     public float getPrefHeight() {
-        return 650;
+        return 700;
     }
 }
