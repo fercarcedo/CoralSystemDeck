@@ -1,8 +1,11 @@
 package ferjogames.coralsystemdeck.actors;
 
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.moveTo;
+
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.Align;
@@ -11,7 +14,6 @@ import ferjogames.coralsystemdeck.CoralSystemDeck;
 import ferjogames.coralsystemdeck.actions.ChangeImage;
 import ferjogames.coralsystemdeck.actions.FlipIn;
 import ferjogames.coralsystemdeck.actions.FlipOut;
-import ferjogames.coralsystemdeck.actions.MoveUp;
 import ferjogames.coralsystemdeck.actions.ShowKeyboard;
 import ferjogames.coralsystemdeck.logic.Operation;
 import ferjogames.coralsystemdeck.utils.Colors;
@@ -45,7 +47,7 @@ public class GameRocket extends Actor {
     private Operation operation;
     private Side side = Side.FRONT;
     private GameKeyboard keyboard;
-    private MoveUp moveUp;
+    private MoveToAction moveUp;
     private ShowKeyboard showKeyboard;
     private int correctAnswers;
     private int incorrectAnswers;
@@ -248,7 +250,7 @@ public class GameRocket extends Actor {
 
     public void moveUp() {
         if (side == Side.FRONT) {
-            moveUp = new MoveUp(253);
+            moveUp = moveTo(getX(), 253, 1.5f);
             showKeyboard = new ShowKeyboard(keyboard);
 
             if (!game.isPaused()) {
@@ -265,8 +267,6 @@ public class GameRocket extends Actor {
     }
 
     public void moveDown() {
-        if (moveUp != null)
-            moveUp.stop();
         if (showKeyboard != null)
             showKeyboard.stop();
         if (keyboard != null)
